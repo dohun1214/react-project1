@@ -2,7 +2,7 @@ function Header () {
     
     return (
         <>
-        <h1>안녕haseyo</h1>
+        <h1>안녕has</h1>
         </>
     )
 }
