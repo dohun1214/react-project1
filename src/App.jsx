@@ -10,7 +10,7 @@ const App = () => {
           <h1 className="text-2xl font-bold text-blue-600">JOBBLE</h1>
           <div className="flex space-x-4">
             <a href="#" className="text-sm text-gray-700">로그인</a>
-            <a href="#" className="text-sm text-gray-700">회원가입</a>
+            <a href="#" className="text-sm text-gray-700">회원</a>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 pb-4">
