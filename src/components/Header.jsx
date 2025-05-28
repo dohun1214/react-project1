@@ -1,20 +1,23 @@
+import { Link } from "react-router-dom";
+
 function Header() {
     return (
         <>
             <header className="bg-white shadow-sm border-b">
                 <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-                    <h1
+                    <Link to={"/"}
                         className="text-3xl font-extrabold tracking-tight font-serif"
                         style={{ color: '#7989F6' }}
                     >
                         JOBBLE
-                    </h1>
+                    </Link>
 
                     <div className="flex space-x-4">
                         <a
                             href="#"
                             className="text-sm text-gray-600 hover:text-[#7989F6] transition"
                         >
+                            
                             로그인
                         </a>
                         <a
@@ -36,12 +39,11 @@ function Header() {
 
                 <nav className="bg-white border-t border-b">
                     <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-2 grid grid-cols-5 gap-2 text-[15px] font-semibold text-gray-700">
-                        <a
-                            href="#"
+                        <Link to="/recruit" 
                             className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
                         >
                             채용정보
-                        </a>
+                        </Link>
                         <a
                             href="#"
                             className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
