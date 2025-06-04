@@ -1,5 +1,5 @@
 import { useReducer, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -13,6 +13,7 @@ import Mypage from './Pages/Mypage';
 import CommunityBoard from './Pages/CommunityBoard';
 import { loginContext } from './contexts/loginContext';
 import Notfound from './Pages/Notfound';
+import { communityContext, initialCommunityPosts } from './contexts/communityContext';
 
 const userReducer = (users, action) => {
   switch (action.type) {
@@ -33,42 +34,60 @@ const userReducer = (users, action) => {
 }
 
 
+const communityPostReducer = (posts, action) => {
+
+  switch (action.type) {
+    case 'ADD':
+      return
+    case 'DELETE':
+      return
+    case 'UPDATE':
+      return
+    default:
+      return posts
+  }
+
+}
+
+
 function App() {
 
   const [jobPosts, setJobPosts] = useState(initialPosts);
   const [users, userDispatch] = useReducer(userReducer, initialUsers)
+  const [communityPosts, communityPostDispatch] = useReducer(communityPostReducer, initialCommunityPosts)
   const [isLogin, setIsLogin] = useState(false)
-
 
   return (
     <>
-      <loginContext.Provider value={{ isLogin, setIsLogin }}>
-        <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
-          <userContext.Provider value={{ users, userDispatch }}>
+      <communityContext.Provider value={{communityPosts,communityPostDispatch}}>
+        <loginContext.Provider value={{ isLogin, setIsLogin }}>
+          <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
+            <userContext.Provider value={{ users, userDispatch }}>
 
-            {/* 테스트용 코드 */}
-            <button onClick={() => {
-              console.log(users)
-            }}>user</button>
-            <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
+              {/* 테스트용 코드 */}
+              <button onClick={() => {
+                console.log(users)
+              }}>user</button>
+              <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
 
-            <Header />
+              <Header />
 
-            <Routes>
-              <Route path='/' element={<Main />} />
-              <Route path='/recruit' element={<Recruit />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-              <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
-              <Route path='/community' element={<CommunityBoard />} />
-              <Route path='*' element={<Notfound />} />
-            </Routes>
+              <Routes>
+                <Route path='/' element={<Main />} />
+                <Route path='/recruit' element={<Recruit />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
+                <Route path='/communityboard' element={<CommunityBoard />} />
+                <Route path='*' element={<Notfound />} />
+              </Routes>
 
-            <Footer />
+              <Footer />
 
-          </userContext.Provider>
-        </jobPostContext.Provider>
-      </loginContext.Provider>
+            </userContext.Provider>
+          </jobPostContext.Provider>
+        </loginContext.Provider>
+      </communityContext.Provider>
 
     </>
 

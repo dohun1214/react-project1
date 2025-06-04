@@ -6,18 +6,13 @@ import { loginContext } from '../contexts/loginContext';
 
 function Header() {
 
-    const {isLogin} = useContext(loginContext)
+    const { isLogin } = useContext(loginContext)
 
     return (
         <>
             <header className="bg-white shadow-sm border-b">
                 <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-                    <Link to={"/"}
-                        className="text-3xl font-extrabold tracking-tight font-serif"
-                        style={{ color: '#7989F6' }}
-                    >
-                        JOBBLE
-                    </Link>
+                    <Link to={"/"} className="text-3xl font-extrabold tracking-tight font-serif" style={{ color: '#7989F6' }}>JOBBLE</Link>
 
                     <div className="flex space-x-4">
                         {isLogin ? <UserMenu /> : <Auth />}
@@ -38,7 +33,7 @@ function Header() {
 
                         <a href="#" className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">브랜드알바</a>
 
-                        <Link to={"/community"} className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">커뮤니티</Link>
+                        <Link to={"/communityboard"} className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">커뮤니티</Link>
 
                         <a href="#" className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100" >고객센터</a>
 
