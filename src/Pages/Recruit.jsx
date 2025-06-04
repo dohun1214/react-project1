@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import Post from "../components/Post";
-import { postContext } from "../contexts/postContext";
+import { jobPostContext } from "../contexts/jobPostContext";
 
 function Recruit() {
-  const { posts } = useContext(postContext);
+  const { jobPosts } = useContext(jobPostContext);
 
   const [region,    setRegion]    = useState("");
   const [category,  setCategory]  = useState("");
@@ -13,8 +13,8 @@ function Recruit() {
   const [filtered,  setFiltered]  = useState([]);
 
   useEffect(() => {
-    setFiltered(posts);
-  }, [posts]);
+    setFiltered(jobPosts);
+  }, [jobPosts]);
 
   const normalize = (str = "") =>
     str.replace(/['"\u201C\u201D]/g, "").trim().toLowerCase();
@@ -26,7 +26,7 @@ function Recruit() {
     const det  = normalize(detail);
     const key  = normalize(keyword);
 
-    const result = posts.filter((p) => {
+    const result = jobPosts.filter((p) => {
       const prgn  = normalize(p.region);
       const pcmp  = normalize(p.company);
       const pcat  = normalize(p.category);
@@ -59,7 +59,7 @@ function Recruit() {
     setCondition("");
     setDetail("");
     setKeyword("");
-    setFiltered(posts);
+    setFiltered(jobPosts);
   };
 
   const onKeyDown = (e) => {

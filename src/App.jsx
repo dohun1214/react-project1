@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Recruit from './Pages/Recruit';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
-import { initialPosts, postContext } from './contexts/postContext';
+import { initialPosts, jobPostContext } from './contexts/jobPostContext';
 import { initialUsers, userContext } from './contexts/userContext'
 import './App.css';
 import Mypage from './Pages/Mypage';
@@ -20,12 +20,14 @@ const userReducer = (users, action) => {
       return [...users, action.payload]
 
     case 'DELETE_USER':
-      return users.filter(user => user.id != action.payload);
+      return users.filter(user => user.id !== action.payload);
 
     case 'UPDATE_USER':
       return users.map(user =>
         user.id === action.payload.id ? { ...user, ...action.payload } : user
       );
+    default:
+      return users
   }
 
 }
@@ -33,7 +35,7 @@ const userReducer = (users, action) => {
 
 function App() {
 
-  const [posts, setPosts] = useState(initialPosts);
+  const [jobPosts, setJobPosts] = useState(initialPosts);
   const [users, userDispatch] = useReducer(userReducer, initialUsers)
   const [isLogin, setIsLogin] = useState(false)
 
@@ -41,13 +43,12 @@ function App() {
   return (
     <>
       <loginContext.Provider value={{ isLogin, setIsLogin }}>
-        <postContext.Provider value={{ posts, setPosts }}>
+        <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
           <userContext.Provider value={{ users, userDispatch }}>
 
             {/* 테스트용 코드 */}
             <button onClick={() => {
-              const user = users.map(user => user)
-              console.log(user)
+              console.log(users)
             }}>user</button>
             <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
 
@@ -60,13 +61,13 @@ function App() {
               <Route path='/register' element={<Register />} />
               <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
               <Route path='/community' element={<CommunityBoard />} />
-              <Route path='*' element={<Notfound/>}/>
+              <Route path='*' element={<Notfound />} />
             </Routes>
 
             <Footer />
 
           </userContext.Provider>
-        </postContext.Provider>
+        </jobPostContext.Provider>
       </loginContext.Provider>
 
     </>

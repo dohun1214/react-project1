@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-const postContext = createContext();
+const jobPostContext = createContext();
 
 const initialPosts = [
     {
@@ -53,4 +53,4 @@ const initialPosts = [
     }
 ];
 
-export {postContext,initialPosts}
+export {jobPostContext,initialPosts}
