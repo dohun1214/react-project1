@@ -14,6 +14,8 @@ import CommunityBoard from './Pages/CommunityBoard';
 import { loginContext } from './contexts/loginContext';
 import Notfound from './Pages/Notfound';
 import { communityContext, initialCommunityPosts } from './contexts/communityContext';
+import CommunityNew from './Pages/CommunityNew';
+import CommunityUpdate from './Pages/CommunityUpdate';
 
 const userReducer = (users, action) => {
   switch (action.type) {
@@ -35,18 +37,16 @@ const userReducer = (users, action) => {
 
 
 const communityPostReducer = (posts, action) => {
-
   switch (action.type) {
-    case 'ADD':
-      return
-    case 'DELETE':
-      return
-    case 'UPDATE':
-      return
+    case 'ADD_POST':
+      return [action.payload, ...posts];
+    case 'UPDATE_POSTS':
+      return action.payload;
+    case 'DELETE_POSTS':
+      return posts.filter(post => post.id !== action.payload);
     default:
-      return posts
+      return posts;
   }
-
 }
 
 
@@ -59,7 +59,7 @@ function App() {
 
   return (
     <>
-      <communityContext.Provider value={{communityPosts,communityPostDispatch}}>
+      <communityContext.Provider value={{ communityPosts, communityPostDispatch }}>
         <loginContext.Provider value={{ isLogin, setIsLogin }}>
           <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
             <userContext.Provider value={{ users, userDispatch }}>
@@ -79,6 +79,8 @@ function App() {
                 <Route path='/register' element={<Register />} />
                 <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
                 <Route path='/communityboard' element={<CommunityBoard />} />
+                <Route path="/communitynew" element={<CommunityNew />} />
+                <Route path="/edit/:id" element={<CommunityUpdate />} />
                 <Route path='*' element={<Notfound />} />
               </Routes>
 
