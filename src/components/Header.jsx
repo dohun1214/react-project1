@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import Auth from "./Auth";
+import UserMenu from "./UserMenu";
+import { useContext } from "react";
+import { loginContext } from '../contexts/loginContext';
 
 function Header() {
+
+    const {isLogin} = useContext(loginContext)
+
     return (
         <>
             <header className="bg-white shadow-sm border-b">
@@ -13,19 +20,7 @@ function Header() {
                     </Link>
 
                     <div className="flex space-x-4">
-                        <a
-                            href="#"
-                            className="text-sm text-gray-600 hover:text-[#7989F6] transition"
-                        >
-                            
-                            로그인
-                        </a>
-                        <a
-                            href="#"
-                            className="text-sm text-gray-600 hover:text-[#7989F6] transition"
-                        >
-                            회원가입
-                        </a>
+                        {isLogin ? <UserMenu /> : <Auth />}
                     </div>
                 </div>
 
@@ -39,35 +34,15 @@ function Header() {
 
                 <nav className="bg-white border-t border-b">
                     <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-2 grid grid-cols-5 gap-2 text-[15px] font-semibold text-gray-700">
-                        <Link to="/recruit" 
-                            className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
-                        >
-                            채용정보
-                        </Link>
-                        <a
-                            href="#"
-                            className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
-                        >
-                            브랜드알바
-                        </a>
-                        <a
-                            href="#"
-                            className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
-                        >
-                            커뮤니티
-                        </a>
-                        <a
-                            href="#"
-                            className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
-                        >
-                            고객센터
-                        </a>
-                        <a
-                            href="#"
-                            className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"
-                        >
-                            마이페이지
-                        </a>
+                        <Link to="/recruit" className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">채용정보</Link>
+
+                        <a href="#" className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">브랜드알바</a>
+
+                        <Link to={"/community"} className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100">커뮤니티</Link>
+
+                        <a href="#" className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100" >고객센터</a>
+
+                        <Link to={"/Mypage"} className="text-center hover:text-[#7989F6] py-2 rounded-md hover:bg-gray-100"> 마이페이지</Link>
                     </div>
                 </nav>
             </header>

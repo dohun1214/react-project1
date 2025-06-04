@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 function Main() {
+    const navi = useNavigate();
     return (
         <>
             <main className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6">
@@ -33,10 +36,10 @@ function Main() {
                         {/* 회원 메뉴 */}
                         <div className="bg-white p-4 rounded-2xl shadow text-center">
                             <p className="font-semibold text-lg mb-2">회원 메뉴</p>
-                            <button className="w-full py-2 mb-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
+                            <button onClick={() => { navi("/login") }} className="w-full py-2 mb-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
                                 로그인
                             </button>
-                            <button className="w-full py-2 bg-gray-200 text-sm rounded hover:bg-gray-300">
+                            <button onClick={() => { navi("/register") }} className="w-full py-2 bg-gray-200 text-sm rounded hover:bg-gray-300">
                                 회원가입
                             </button>
                             <div className="mt-2 text-xs text-blue-600 underline cursor-pointer">
