@@ -6,7 +6,7 @@ import { loginContext } from '../contexts/loginContext'
 const Login = () => {
 
     const { users } = useContext(userContext)
-    const { isLogin, setIsLogin } = useContext(loginContext)
+    const { isLogin, setIsLogin, setCurrentUser } = useContext(loginContext)
 
     const [idValue, setId] = useState('')
     const [pwValue, setPw] = useState('')
@@ -26,11 +26,17 @@ const Login = () => {
         const user = users.find(user => user.id === idValue && user.password == pwValue);
         if (user) {
             setIsLogin(true);
+            setCurrentUser(user.id)
+
+            localStorage.setItem("isLogin","true");
+            localStorage.setItem("currentUser",user.id);
+            
             navi("/");
         } else {
             alert("아이디 또는 비밀번호가 틀렸습니다")
             inputRef.current.focus()
         }
+
     }
 
     return (

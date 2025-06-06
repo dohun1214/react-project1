@@ -1,0 +1,8 @@
+export { default as Recruit } from './Recruit'
+export { default as Login } from './Login'
+export { default as Register } from './Register'
+export { default as Mypage } from './Mypage'
+export { default as Notfound } from './Notfound'
+export { default as CommunityNew } from './CommunityNew'
+export { default as CommunityBoard } from './CommunityBoard'
+export { default as CommunityUpdate } from './CommunityUpdate'

@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
 import Auth from "./Auth";
-import UserMenu from "./UserMenu";
-import { useContext } from "react";
-import { loginContext } from '../contexts/loginContext';
 
 function Header() {
 
-    const { isLogin } = useContext(loginContext)
 
     return (
         <>
@@ -15,7 +11,7 @@ function Header() {
                     <Link to={"/"} className="text-3xl font-extrabold tracking-tight font-serif" style={{ color: '#7989F6' }}>JOBBLE</Link>
 
                     <div className="flex space-x-4">
-                        {isLogin ? <UserMenu /> : <Auth />}
+                        <Auth/>
                     </div>
                 </div>
 
@@ -23,7 +19,7 @@ function Header() {
                     <input
                         type="text"
                         placeholder="🔍 원하는 알바를 검색하세요"
-                        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#7989F6] text-sm placeholder-gray-400"
+                        className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#7989F6] text-sm placeholder-gray-400 transition"
                     />
                 </div>
 

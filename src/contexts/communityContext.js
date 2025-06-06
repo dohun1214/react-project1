@@ -20,4 +20,6 @@ const initialCommunityPosts = [
     },
 ]
 
+
+
 export {communityContext,initialCommunityPosts}

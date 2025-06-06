@@ -1,21 +1,8 @@
 import { useReducer, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import Recruit from './Pages/Recruit';
-import Login from './Pages/Login';
-import Register from './Pages/Register';
-import { initialPosts, jobPostContext } from './contexts/jobPostContext';
-import { initialUsers, userContext } from './contexts/userContext'
-import './App.css';
-import Mypage from './Pages/Mypage';
-import CommunityBoard from './Pages/CommunityBoard';
-import { loginContext } from './contexts/loginContext';
-import Notfound from './Pages/Notfound';
-import { communityContext, initialCommunityPosts } from './contexts/communityContext';
-import CommunityNew from './Pages/CommunityNew';
-import CommunityUpdate from './Pages/CommunityUpdate';
+import { Header, Main, Footer } from './components';
+import { Recruit, Login, Register, Mypage, Notfound, CommunityBoard, CommunityNew, CommunityUpdate } from './Pages';
+import { jobPostContext, initialPosts, userContext, initialUsers, loginContext, communityContext, initialCommunityPosts } from './contexts';
 
 const userReducer = (users, action) => {
   switch (action.type) {
@@ -55,20 +42,24 @@ function App() {
   const [jobPosts, setJobPosts] = useState(initialPosts);
   const [users, userDispatch] = useReducer(userReducer, initialUsers)
   const [communityPosts, communityPostDispatch] = useReducer(communityPostReducer, initialCommunityPosts)
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(() => {
+    return localStorage.getItem("isLogin") === "true"
+  })
+  const [currentUser, setCurrentUser] = useState(() => {
+    return localStorage.getItem("currentUser")
+  })
 
   return (
     <>
       <communityContext.Provider value={{ communityPosts, communityPostDispatch }}>
-        <loginContext.Provider value={{ isLogin, setIsLogin }}>
+        <loginContext.Provider value={{ isLogin, setIsLogin, currentUser, setCurrentUser }}>
           <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
             <userContext.Provider value={{ users, userDispatch }}>
 
               {/* 테스트용 코드 */}
-              <button onClick={() => {
-                console.log(users)
-              }}>user</button>
+              <button onClick={() => { console.log(users) }}>user</button>
               <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
+              <button onClick={() => { console.log(currentUser) }}>로그인한 유저</button>
 
               <Header />
 
