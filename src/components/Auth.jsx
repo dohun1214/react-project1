@@ -10,8 +10,8 @@ export default function Auth() {
         setIsLogin(false);
         setCurrentUser(null);
 
-        localStorage.removeItem("isLogin")
-        localStorage.removeItem("currentUser")
+        sessionStorage.removeItem("isLogin")
+        sessionStorage.removeItem("currentUser")
     }
 
     return (

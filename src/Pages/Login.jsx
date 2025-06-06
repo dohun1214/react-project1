@@ -28,8 +28,8 @@ const Login = () => {
             setIsLogin(true);
             setCurrentUser(user.id)
 
-            localStorage.setItem("isLogin","true");
-            localStorage.setItem("currentUser",user.id);
+            sessionStorage.setItem("isLogin","true");
+            sessionStorage.setItem("currentUser",user.id);
             
             navi("/");
         } else {

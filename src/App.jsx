@@ -43,10 +43,10 @@ function App() {
   const [users, userDispatch] = useReducer(userReducer, initialUsers)
   const [communityPosts, communityPostDispatch] = useReducer(communityPostReducer, initialCommunityPosts)
   const [isLogin, setIsLogin] = useState(() => {
-    return localStorage.getItem("isLogin") === "true"
+    return sessionStorage.getItem("isLogin") === "true"
   })
   const [currentUser, setCurrentUser] = useState(() => {
-    return localStorage.getItem("currentUser")
+    return sessionStorage.getItem("currentUser")
   })
 
   return (
