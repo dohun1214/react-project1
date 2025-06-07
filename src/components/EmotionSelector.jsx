@@ -1,5 +1,5 @@
-import { emotionList } from '../utils/constants';
-import { getEmotionImage } from '../utils/get-emotion-image';
+import { emotionList } from '../utils/emotionList';
+import { getEmotionImage } from '../utils/getEmotionImage';
 
 const EmotionSelector = ({ selectedId, onSelect }) => (
     <div className="flex gap-2 mb-4">

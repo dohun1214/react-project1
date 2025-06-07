@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { communityContext } from '../contexts/communityContext';
-import { getEmotionImage } from '../utils/get-emotion-image';
+import { getEmotionImage } from '../utils/getEmotionImage';
 
 const CommunityDetail = () => {
     const { id } = useParams();

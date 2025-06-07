@@ -53,4 +53,4 @@ const initialPosts = [
     }
 ];
 
-export {jobPostContext,initialPosts}
+export { jobPostContext, initialPosts }
