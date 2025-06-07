@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header, Main, Footer } from './components';
-import { Recruit, Login, Register, Mypage, Notfound, CommunityBoard, CommunityNew, CommunityUpdate } from './Pages';
+import { Recruit, Login, Register, Mypage, Notfound, CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail } from './Pages';
 import { jobPostContext, initialPosts, userContext, initialUsers, loginContext, communityContext, initialCommunityPosts } from './contexts';
 
 const userReducer = (users, action) => {
@@ -72,6 +72,7 @@ function App() {
                 <Route path='/communityboard' element={<CommunityBoard />} />
                 <Route path="/communitynew" element={<CommunityNew />} />
                 <Route path="/edit/:id" element={<CommunityUpdate />} />
+                <Route path="/post/:id" element={<CommunityDetail />} />
                 <Route path='*' element={<Notfound />} />
               </Routes>
 

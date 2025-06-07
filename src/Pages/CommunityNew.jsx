@@ -24,6 +24,10 @@ const CommunityNew = () => {
       title: title.trim(),
       text: text.trim(),
       createdAt: new Date().toISOString(),
+      viewCount: 0,
+      commentCount: 0,
+      likeCount: 0,
+      comments: [],
     };
 
     communityPostDispatch({ type: 'ADD_POST', payload: newPost });

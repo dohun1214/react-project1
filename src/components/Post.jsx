@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Post({ company, title, region, time, pay, date }) {
   const [wished, setWished] = useState(false);
