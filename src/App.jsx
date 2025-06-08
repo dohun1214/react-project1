@@ -1,8 +1,18 @@
 import { useReducer, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header, Main, Footer } from './components';
-import { Recruit, Login, Register, Mypage, Notfound, CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail } from './Pages';
-import { jobPostContext, initialPosts, userContext, initialUsers, loginContext, communityContext, initialCommunityPosts } from './contexts';
+import {
+  Login, Register, Mypage, Notfound,
+  CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail,
+  RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail
+} from './Pages';
+import {
+  jobPostContext, initialJobPosts,
+  userContext, initialUsers,
+  loginContext,
+  communityContext, initialCommunityPosts
+} from './contexts';
+
 
 const userReducer = (users, action) => {
   switch (action.type) {
@@ -39,7 +49,7 @@ const communityPostReducer = (posts, action) => {
 
 function App() {
 
-  const [jobPosts, setJobPosts] = useState(initialPosts);
+  const [jobPosts, setJobPosts] = useState(initialJobPosts);
   const [users, userDispatch] = useReducer(userReducer, initialUsers)
   const [communityPosts, communityPostDispatch] = useReducer(communityPostReducer, initialCommunityPosts)
   const [isLogin, setIsLogin] = useState(() => {
@@ -65,7 +75,10 @@ function App() {
 
               <Routes>
                 <Route path='/' element={<Main />} />
-                <Route path='/recruit' element={<Recruit />} />
+                <Route path="/recruit" element={<RecruitBoard />} />
+                <Route path="/recruit/new" element={<RecruitNew />} />
+                <Route path="/recruit/edit/:id" element={<RecruitUpdate />} />
+                <Route path="/recruit/:id" element={<RecruitDetail />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />

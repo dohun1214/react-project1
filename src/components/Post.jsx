@@ -1,25 +1,28 @@
-import { useState } from 'react';
 
-function Post({ company, title, region, time, pay, date }) {
-  const [wished, setWished] = useState(false);
-  const toggleWish = () => setWished(prev => !prev);
-
+const Post = ({ company, title, region, time, pay, createdAt }) => {
   return (
-    <div className="border-t py-4 grid grid-cols-[auto_1fr_1fr_1fr_1fr_1fr] items-center gap-x-4 px-2 text-gray-600">
-      <button onClick={toggleWish} className={`text-xl transition-transform duration-150 ${wished ? 'text-yellow-400' : 'text-gray-400'}`}>
-        {wished ? '★' : '☆'}
-      </button>
-
-      <div className="font-medium">{company}</div>
-      <div>{title}</div>
-      <div>{region}</div>
-      <div>{time}</div>
+    <div className="flex justify-between items-center px-2 text-gray-700">
+      <div className="flex-1">
+        <p className="text-sm text-gray-500">{company}</p>
+        <h3 className="text-lg font-medium">{title}</h3>
+        <p className="text-sm text-gray-500">
+          {region} · {time}
+        </p>
+      </div>
       <div className="text-right">
-        <span className="font-semibold text-gray-700">{pay}</span>
-        <span className="ml-2 text-gray-400 text-sm">{date}</span>
+        <p className="font-semibold">{pay}</p>
+        <p className="text-sm text-gray-400">
+          {new Date(createdAt).toLocaleString('ko-KR', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default Post;
