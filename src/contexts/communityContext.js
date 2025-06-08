@@ -7,7 +7,7 @@ const initialCommunityPosts = [
         id: 0,
         title: "제목1",
         text: "내용1",
-        emotion: 4, // 감정 추가
+        emotion: 4,
         createdAt: new Date().toISOString(),
         viewCount: 3,
         commentCount: 1,
