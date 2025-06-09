@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Button from '../components/Button';
-import { jobPostContext } from '../contexts/jobPostContext';
+import Button from '../../components/Button';
+import { jobPostContext } from '../../contexts/jobPostContext';
 
 const RecruitDetail = () => {
   const { id } = useParams();

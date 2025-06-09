@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Review from '../components/Review';
-import Button from '../components/Button';
-import { communityContext } from '../contexts/communityContext';
+import Review from '../../components/Review';
+import Button from '../../components/Button';
+import { communityContext } from '../../contexts/communityContext';
 
 const CommunityBoard = () => {
   const { communityPosts, communityPostDispatch } = useContext(communityContext);

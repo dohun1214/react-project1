@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
-import Post from "../components/Post";
-import { jobPostContext } from "../contexts/jobPostContext";
+import Post from "../../components/Post";
+import { jobPostContext } from "../../contexts/jobPostContext";
 
 function Recruit() {
   const { jobPosts } = useContext(jobPostContext);

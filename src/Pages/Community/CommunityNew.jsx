@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/Button';
-import EmotionSelector from '../components/EmotionSelector';
-import { communityContext } from '../contexts/communityContext';
+import Button from '../../components/Button';
+import EmotionSelector from '../../components/EmotionSelector';
+import { communityContext } from '../../contexts/communityContext';
 
 const CommunityNew = () => {
   const { communityPostDispatch } = useContext(communityContext);

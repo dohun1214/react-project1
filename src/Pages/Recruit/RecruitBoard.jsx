@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Post from '../components/Post';
-import { jobPostContext } from '../contexts/jobPostContext';
+import Post from '../../components/Post';
+import { jobPostContext } from '../../contexts/jobPostContext';
 
 const RecruitBoard = () => {
   const { jobPosts } = useContext(jobPostContext);
