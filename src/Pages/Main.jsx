@@ -52,12 +52,7 @@ function Main() {
                             <h2 className="font-semibold mb-2">일정 관리</h2>
                             <div className="grid grid-cols-7 gap-1 text-xs text-center">
                                 {[...Array(35)].map((_, i) => (
-                                    <div
-                                        key={i}
-                                        className="p-2 border rounded hover:bg-gray-100 cursor-pointer"
-                                    >
-                                        {i < 5 ? '' : i - 4}
-                                    </div>
+                                    <div key={i} className="p-2 border rounded hover:bg-gray-100 cursor-pointer"> {i < 5 ? '' : i - 4} </div>
                                 ))}
                             </div>
                         </div>

@@ -1,13 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Button from '../../components/Button';
-import { jobPostContext } from '../../contexts/jobPostContext';
+import { jobPostContext } from '../../contexts'
+import SalaryCalculatorModal from '../../components/SalaryCalculatorModal';
 
 const RecruitDetail = () => {
   const { id } = useParams();
   const { jobPosts } = useContext(jobPostContext);
   const nav = useNavigate();
   const post = jobPosts.find((p) => p.id === Number(id));
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   if (!post) return <p>존재하지 않는 공고입니다.</p>;
 
@@ -33,6 +38,10 @@ const RecruitDetail = () => {
       <div className="whitespace-pre-wrap border rounded p-4">
         {post.content}
       </div>
+
+      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition hover:cursor-pointer" onClick={openModal}>Open Modal</button>
+      <SalaryCalculatorModal isOpen={isModalOpen} onClose={closeModal}/>
+
       <div className="flex space-x-4">
         <Button onClick={() => nav(`/recruit/edit/${post.id}`)}>수정</Button>
         <Link to="/recruit">
