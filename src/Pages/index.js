@@ -12,3 +12,5 @@ export { default as RecruitBoard } from './Recruit/RecruitBoard';
 export { default as RecruitDetail } from './Recruit/RecruitDetail';
 export { default as RecruitNew } from './Recruit/RecruitNew';
 export { default as RecruitUpdate } from './Recruit/RecruitUpdate';
+
+export { default as Main } from './Main'

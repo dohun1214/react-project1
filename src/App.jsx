@@ -1,8 +1,8 @@
 import { useReducer, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Main, Footer } from './components';
+import { Header, Footer } from './components';
 import {
-  Login, Register, Mypage, Notfound,
+  Main, Login, Register, Mypage, Notfound,
   CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail,
   RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail
 } from './Pages';
