@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Button from '../../components/Button';
+import { Button } from '../../components';
 import { jobPostContext } from '../../contexts/jobPostContext';
 
 const timeOptions = ['오전', '오후', '풀타임', '협의 후 결정'];

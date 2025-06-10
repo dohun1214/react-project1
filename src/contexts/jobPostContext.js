@@ -2,9 +2,10 @@ import { createContext } from 'react';
 
 export const jobPostContext = createContext({
   jobPosts: [],
-  setJobPosts: () => {},
+  setJobPosts: () => { },
 });
 
+// id, company, title, region, time, pay, category, condition, preference, content, author, createdAt
 export const initialJobPosts = [
   {
     id: 1,

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
-import { communityContext } from '../../contexts/communityContext';
+import { Button } from '../../components';
+import { communityContext } from '../../contexts';
 import { getEmotionImage } from '../../utils/getEmotionImage';
 
 const CommunityDetail = () => {

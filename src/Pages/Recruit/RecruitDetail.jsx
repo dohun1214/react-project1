@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Button from '../../components/Button';
+import { Button, SalaryCalculatorModal } from '../../components';
 import { jobPostContext } from '../../contexts'
-import SalaryCalculatorModal from '../../components/SalaryCalculatorModal';
 
 const RecruitDetail = () => {
   const { id } = useParams();
@@ -39,8 +38,8 @@ const RecruitDetail = () => {
         {post.content}
       </div>
 
-      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition hover:cursor-pointer" onClick={openModal}>Open Modal</button>
-      <SalaryCalculatorModal isOpen={isModalOpen} onClose={closeModal}/>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition hover:cursor-pointer" onClick={openModal}>급여 계산기</button>
+      <SalaryCalculatorModal isOpen={isModalOpen} onClose={closeModal} {...post}/>
 
       <div className="flex space-x-4">
         <Button onClick={() => nav(`/recruit/edit/${post.id}`)}>수정</Button>

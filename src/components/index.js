@@ -1,2 +1,8 @@
 export { default as Header } from './Header'
 export { default as Footer } from './Footer'
+export { default as Auth } from './Auth'
+export { default as Button } from './Button'
+export { default as EmotionSelector } from './EmotionSelector'
+export { default as Post } from './Post'
+export { default as Review } from './Review'
+export { default as SalaryCalculatorModal } from './SalaryCalculatorModal'

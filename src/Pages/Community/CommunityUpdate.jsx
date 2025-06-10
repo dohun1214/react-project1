@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Button from '../../components/Button';
-import EmotionSelector from '../../components/EmotionSelector';
-import { communityContext } from '../../contexts/communityContext';
+import { Button, EmotionSelector } from '../../components';
+import { communityContext } from '../../contexts';
 
 const CommunityUpdate = () => {
   const { id } = useParams();

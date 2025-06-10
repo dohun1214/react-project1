@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Review from '../../components/Review';
-import Button from '../../components/Button';
+import { Review, Button } from '../../components';
 import { communityContext } from '../../contexts/communityContext';
+
 
 const CommunityBoard = () => {
   const { communityPosts, communityPostDispatch } = useContext(communityContext);
@@ -25,7 +25,7 @@ const CommunityBoard = () => {
         {communityPosts.length === 0 ? (
           <p className="text-gray-500">아직 작성된 후기가 없습니다.</p>
         ) : (
-            communityPosts.map((post) => (
+          communityPosts.map((post) => (
             <Review key={post.id} post={post} onDelete={handleDeletePost} />
           ))
         )}
