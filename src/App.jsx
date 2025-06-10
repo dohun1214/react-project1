@@ -5,7 +5,7 @@ import {
   Main, Login, Register, Mypage, Notfound,
   CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail,
   RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail
-} from './Pages';
+} from './pages';
 import {
   jobPostContext, initialJobPosts,
   userContext, initialUsers,
