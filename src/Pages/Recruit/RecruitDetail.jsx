@@ -30,7 +30,7 @@ const RecruitDetail = () => {
         <div>근무시간: {post.time}</div>
         <div>근무요일: {post.days}</div>
         <div>지역: {post.region}</div>
-        <div>급여: {post.pay}</div>
+        <div>급여: {parseInt(post.pay).toLocaleString()}</div>
         <div>카테고리: {post.category}</div>
         <div>우대사항: {post.preference}</div>
       </div>
@@ -38,8 +38,21 @@ const RecruitDetail = () => {
         {post.content}
       </div>
 
-      <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition hover:cursor-pointer" onClick={openModal}>급여 계산기</button>
-      <SalaryCalculatorModal isOpen={isModalOpen} onClose={closeModal} {...post}/>
+      <button
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition hover:cursor-pointer"
+        onClick={openModal}
+      >
+        급여 계산기
+      </button>
+
+      {/* 조건부 렌더링으로 수정 */}
+      {isModalOpen && (
+        <SalaryCalculatorModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          {...post}
+        />
+      )}
 
       <div className="flex space-x-4">
         <Button onClick={() => nav(`/recruit/edit/${post.id}`)}>수정</Button>

@@ -10,7 +10,7 @@ const Post = ({ company, title, region, time, pay, createdAt }) => {
         </p>
       </div>
       <div className="text-right">
-        <p className="font-semibold">{pay}</p>
+        <p className="font-semibold">{parseInt(pay).toLocaleString()}</p>
         <p className="text-sm text-gray-400">
           {new Date(createdAt).toLocaleString('ko-KR', {
             year: 'numeric',
