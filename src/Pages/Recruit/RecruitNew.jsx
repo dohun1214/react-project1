@@ -42,62 +42,163 @@ const RecruitNew = () => {
   };
 
   return (
-    <div className="p-4 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">새 채용공고 작성</h1>
-      <div className="mb-4">
-        <label className="block mb-1">회사명</label>
-        <input
-          type="text"
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          className="w-full border px-3 py-2 rounded"
-          placeholder="회사명을 입력하세요"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block mb-1">제목</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full border px-3 py-2 rounded"
-          placeholder="제목을 입력하세요"
-        />
-      </div>
-      {/* 상세조건 */}
-      {[
-        ['근무시간', time, setTime, timeOptions],
-        ['근무요일', days, setDays, daysOptions],
-        ['지역', region, setRegion, regionOptions],
-        ['급여', pay, setPay, payOptions],
-        ['카테고리', category, setCategory, categoryOptions],
-        ['우대사항', preference, setPreference, preferenceOptions],
-      ].map(([label, value, setter, opts]) => (
-        <div key={label} className="mb-4">
-          <label className="block mb-1">{label}</label>
-          <select
-            value={value}
-            onChange={(e) => setter(e.target.value)}
-            className="w-full border px-3 py-2 rounded"
-          >
-            {opts.map((o) => (
-              <option key={o} value={o}>{o}</option>
-            ))}
-          </select>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="p-6 max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              새 채용공고 작성
+            </h1>
+            <p className="text-slate-600">새로운 채용 공고를 작성하여 인재를 모집하세요</p>
+          </div>
         </div>
-      ))}
-      <div className="mb-4">
-        <label className="block mb-1">내용</label>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="w-full h-40 border rounded p-3"
-          placeholder="공고 내용을 입력하세요"
-        />
+
+        {/* Form */}
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
+          <div className="space-y-6">
+            {/* Basic Information */}
+            <div className="grid lg:grid-cols-2 gap-6">
+              {/* Company Name */}
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  회사명 <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span className="text-slate-400 text-sm">🏢</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400"
+                    placeholder="회사명을 입력하세요"
+                  />
+                </div>
+              </div>
+
+              {/* Job Title */}
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  채용 제목 <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span className="text-slate-400 text-sm">💼</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400"
+                    placeholder="채용 제목을 입력하세요"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Work Conditions */}
+            <div>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                <span className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xs">⚙️</span>
+                </span>
+                근무 조건
+              </h3>
+              <div className="grid lg:grid-cols-3 gap-4">
+                {[
+                  ['근무시간', time, setTime, timeOptions, '⏰'],
+                  ['근무요일', days, setDays, daysOptions, '📅'],
+                  ['지역', region, setRegion, regionOptions, '📍'],
+                  ['급여', pay, setPay, payOptions, '💰'],
+                  ['카테고리', category, setCategory, categoryOptions, '🏢'],
+                  ['우대사항', preference, setPreference, preferenceOptions, '⭐'],
+                ].map(([label, value, setter, opts, icon]) => (
+                  <div key={label}>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      {label}
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span className="text-slate-400 text-sm">{icon}</span>
+                      </div>
+                      <select
+                        value={value}
+                        onChange={(e) => setter(e.target.value)}
+                        className="w-full pl-10 pr-4 py-3 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none cursor-pointer"
+                      >
+                        {opts.map((o) => (
+                          <option key={o} value={o}>{o}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                        <span className="text-slate-400 text-sm">▼</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-2">
+                상세 내용 <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <textarea
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  className="w-full h-48 p-4 bg-white/50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400 resize-none"
+                  placeholder="채용 공고의 상세 내용을 입력하세요&#10;&#10;예시:&#10;- 업무 내용&#10;- 자격 요건&#10;- 우대 사항&#10;- 복리후생&#10;- 근무 환경 등"
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex justify-end gap-4 pt-6 border-t border-slate-200">
+              <Button
+                onClick={() => navigate('/recruit')}
+                className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3"
+              >
+                취소
+              </Button>
+              <Button
+                onClick={handleSubmit}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <span className="flex items-center gap-2">
+                  <span>📝</span>
+                  공고 등록
+                </span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Tips */}
+        <div className="mt-6 bg-blue-50/50 backdrop-blur-sm rounded-2xl border border-blue-200/30 p-6">
+          <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
+            <span className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">
+              <span className="text-white text-xs">💡</span>
+            </span>
+            작성 팁
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+            <div className="space-y-2">
+              <p>• 구체적이고 명확한 채용 제목을 작성하세요</p>
+              <p>• 업무 내용과 자격 요건을 상세히 기술하세요</p>
+              <p>• 근무 조건과 복리후생을 명시하세요</p>
+            </div>
+            <div className="space-y-2">
+              <p>• 지원 방법과 절차를 안내하세요</p>
+              <p>• 회사 소개와 근무 환경을 설명하세요</p>
+              <p>• 연락처 정보를 정확히 입력하세요</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <Button onClick={handleSubmit} className="bg-[#7989F6] text-white">
-        등록
-      </Button>
     </div>
   );
 };

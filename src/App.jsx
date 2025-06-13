@@ -12,6 +12,7 @@ import {
   loginContext,
   communityContext, initialCommunityPosts
 } from './contexts';
+import SearchResults from './Pages/SearchResults';
 
 
 const userReducer = (users, action) => {
@@ -26,6 +27,26 @@ const userReducer = (users, action) => {
       return users.map(user =>
         user.id === action.payload.id ? { ...user, ...action.payload } : user
       );
+    case 'WISHLIST_ADD':
+      return users.map(user => {
+        if (user.id === action.payload.userId) {
+          return {
+            ...user,
+            wishlist: [...user.wishlist, action.payload.postId]
+          }
+        }
+        return user
+      })
+    case 'WISHLIST_DELETE':
+      return users.map(user => {
+        if (user.id === action.payload.userId) {
+          return {
+            ...user,
+            wishlist: user.wishlist.filter(id => id !== action.payload.postId)
+          }
+        }
+        return users;
+      })
     default:
       return users
   }
@@ -75,6 +96,7 @@ function App() {
 
               <Routes>
                 <Route path='/' element={<Main />} />
+                <Route path="/search" element={<SearchResults />} />
                 <Route path="/recruit" element={<RecruitBoard />} />
                 <Route path="/recruit/new" element={<RecruitNew />} />
                 <Route path="/recruit/edit/:id" element={<RecruitUpdate />} />

@@ -22,14 +22,31 @@ const CommunityDetail = () => {
 
     if (!post) {
         return (
-            <div className="p-4 text-center">
-                <p>게시글을 찾을 수 없습니다.</p>
-                <Button onClick={() => navigate('/communityboard')}>목록</Button>
+            <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8 text-center">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl text-red-500">❌</span>
+                    </div>
+                    <h2 className="text-xl font-semibold text-slate-800 mb-2">게시글을 찾을 수 없습니다</h2>
+                    <p className="text-slate-600 mb-6">요청하신 게시글이 존재하지 않거나 삭제되었습니다.</p>
+                    <button
+                        onClick={() => navigate('/communityboard')}
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 font-semibold"
+                    >
+                        목록으로 돌아가기
+                    </button>
+                </div>
             </div>
         );
     }
 
-    const time = new Date(post.createdAt).toLocaleString();
+    const time = new Date(post.createdAt).toLocaleString('ko-KR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+    });
 
     const handleLike = () => {
         const updated = communityPosts.map((p) =>
@@ -59,69 +76,131 @@ const CommunityDetail = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-4 space-y-6">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold">{post.title}</h1>
-                <Button onClick={() => navigate('/communityboard')}>← 목록</Button>
-            </div>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+            <div className="max-w-4xl mx-auto p-6">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 className="text-3xl font-bold text-slate-800">{post.title}</h1>
+                        <div className="flex items-center gap-4 mt-2 text-sm text-slate-500">
+                            <span className="flex items-center gap-1">
+                                <span className="text-blue-500">🕒</span>
+                                {time}
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <span className="text-green-500">👁️</span>
+                                {post.viewCount}
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <span className="text-purple-500">💬</span>
+                                {post.commentCount}
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <span className="text-pink-500">❤️</span>
+                                {post.likeCount}
+                            </span>
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => navigate('/communityboard')}
+                        className="bg-white/70 backdrop-blur-sm text-slate-700 px-4 py-2 rounded-xl hover:bg-white transition-all duration-200 shadow-sm border border-white/20 font-medium"
+                    >
+                        ← 목록
+                    </button>
+                </div>
 
-            {/* 메타 정보 */}
-            <div className="text-sm text-gray-500 flex space-x-4">
-                <span>🕒 {time}</span>
-                <span>👁️ {post.viewCount}</span>
-                <span>💬 {post.commentCount}</span>
-                <span>❤️ {post.likeCount}</span>
-            </div>
+                {/* Main Content */}
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8 mb-8">
+                    {/* Emotion Image */}
+                    {post.emotion && (
+                        <div className="flex justify-center mb-6">
+                            <div className="w-20 h-20 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
+                                <img
+                                    src={getEmotionImage(post.emotion)}
+                                    alt="감정 상태"
+                                    className="w-12 h-12"
+                                />
+                            </div>
+                        </div>
+                    )}
 
-            {/* 감정 이미지 (선택 사항) */}
-            {post.emotion && (
-                <img
-                    src={getEmotionImage(post.emotion)}
-                    alt="감정 상태"
-                    className="w-16 h-16"
-                />
-            )}
+                    {/* Post Content */}
+                    <div className="whitespace-pre-wrap text-slate-700 leading-relaxed text-lg mb-8">
+                        {post.text}
+                    </div>
 
-            {/* 본문 */}
-            <div className="whitespace-pre-wrap border rounded p-4">{post.text}</div>
+                    {/* Like Button */}
+                    <div className="flex justify-center">
+                        <button
+                            onClick={handleLike}
+                            className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-xl hover:from-pink-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl font-semibold flex items-center gap-2"
+                        >
+                            <span className="text-lg">❤️</span>
+                            좋아요 ({post.likeCount})
+                        </button>
+                    </div>
+                </div>
 
-            {/* 좋아요 */}
-            <Button onClick={handleLike}>좋아요 ({post.likeCount})</Button>
+                {/* Comment Section */}
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
+                    {/* Comment Form */}
+                    <div className="mb-8">
+                        <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <span className="text-blue-500">💭</span>
+                            댓글 작성
+                        </h2>
+                        <div className="space-y-4">
+                            <textarea
+                                className="w-full h-32 bg-white/50 border border-slate-200 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400 resize-none"
+                                value={commentText}
+                                onChange={(e) => setCommentText(e.target.value)}
+                                placeholder="댓글을 입력해주세요..."
+                            />
+                            <div className="flex justify-end">
+                                <button
+                                    onClick={handleAddComment}
+                                    className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 font-semibold"
+                                >
+                                    댓글 등록
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-            {/* 댓글 작성 */}
-            <div>
-                <h2 className="text-lg font-semibold mb-2">댓글 작성</h2>
-                <textarea
-                    className="w-full h-24 border rounded p-3 mb-2"
-                    value={commentText}
-                    onChange={(e) => setCommentText(e.target.value)}
-                    placeholder="댓글을 입력해주세요."
-                />
-                <Button
-                    onClick={handleAddComment}
-                    className="bg-[#7989F6] text-white hover:bg-[#4d5de9]"
-                >
-                    댓글 등록
-                </Button>
-            </div>
-
-            {/* 댓글 목록 */}
-            <div>
-                <h2 className="text-lg font-semibold mb-2">댓글 목록</h2>
-                {post.comments.length === 0 ? (
-                    <p className="text-gray-500">등록된 댓글이 없습니다.</p>
-                ) : (
-                    <ul className="space-y-3">
-                        {post.comments.map((c) => (
-                            <li key={c.id} className="border-b pb-2">
-                                <p className="text-sm text-gray-600 mb-1">
-                                    🕒 {new Date(c.createdAt).toLocaleString()}
-                                </p>
-                                <p>{c.text}</p>
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                    {/* Comments List */}
+                    <div>
+                        <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <span className="text-green-500">💬</span>
+                            댓글 목록 ({post.comments.length})
+                        </h2>
+                        {post.comments.length === 0 ? (
+                            <div className="text-center py-12">
+                                <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="text-2xl text-slate-400">💭</span>
+                                </div>
+                                <p className="text-slate-500">등록된 댓글이 없습니다</p>
+                                <p className="text-slate-400 text-sm">첫 번째 댓글을 작성해보세요!</p>
+                            </div>
+                        ) : (
+                            <div className="space-y-4">
+                                {post.comments.map((c) => (
+                                    <div key={c.id} className="bg-white/50 rounded-xl p-4 border border-slate-100">
+                                        <div className="flex items-center gap-2 mb-2 text-sm text-slate-500">
+                                            <span className="text-blue-500">🕒</span>
+                                            {new Date(c.createdAt).toLocaleString('ko-KR', {
+                                                month: '2-digit',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                            })}
+                                        </div>
+                                        <p className="text-slate-700 leading-relaxed">{c.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

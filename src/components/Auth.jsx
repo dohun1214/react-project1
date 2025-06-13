@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { loginContext } from "../contexts";
 
 export default function Auth() {
-
     const { isLogin, setIsLogin, currentUser, setCurrentUser } = useContext(loginContext)
 
     const logoutHandler = () => {
@@ -15,20 +14,45 @@ export default function Auth() {
     }
 
     return (
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-3">
             {isLogin ? (
-                <>
-                    <span className="text-sm text-gray-700 ">
-                        안녕하세요, <b>{currentUser}</b>님
-                    </span>
-
-                    <button onClick={logoutHandler} className="text-sm text-gray-600 hover:text-red-500 transition hover:cursor-pointer" >로그아웃</button>
-                </>
+                <div className="flex items-center gap-4">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-xl shadow-lg">
+                        <span className="text-sm font-medium">
+                            안녕하세요, <span className="font-bold">{currentUser}</span>님! 👋
+                        </span>
+                    </div>
+                    <button
+                        onClick={logoutHandler}
+                        className="group bg-slate-100 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 text-slate-600 hover:text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-red-200 transform hover:-translate-y-0.5"
+                    >
+                        <span className="flex items-center gap-2">
+                            <span className="text-sm">🚪</span>
+                            로그아웃
+                        </span>
+                    </button>
+                </div>
             ) : (
-                <>
-                    <Link to="/login" className="text-sm text-gray-600 hover:text-[#7989F6] transition p-2">로그인</Link>
-                    <Link to="/register" className="text-sm text-gray-600 hover:text-[#7989F6] transition p-2"> 회원가입</Link>
-                </>
+                <div className="flex items-center gap-2">
+                    <Link
+                        to="/login"
+                        className="group bg-white/50 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 text-slate-700 hover:text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 border border-white/30 hover:border-transparent hover:shadow-lg hover:shadow-blue-200 transform hover:-translate-y-0.5"
+                    >
+                        <span className="flex items-center gap-2">
+                            <span className="text-sm">🔑</span>
+                            로그인
+                        </span>
+                    </Link>
+                    <Link
+                        to="/register"
+                        className="group bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-300 shadow-lg shadow-purple-200 hover:shadow-xl hover:shadow-purple-300 transform hover:-translate-y-0.5"
+                    >
+                        <span className="flex items-center gap-2">
+                            <span className="text-sm">✨</span>
+                            회원가입
+                        </span>
+                    </Link>
+                </div>
             )}
         </div>
     )
