@@ -16,7 +16,6 @@ const DateModal = ({ isOpen, onClose, selectedDate, wishlist, events = [], addEv
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-hidden">
-                {/* Header */}
                 <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-6 text-white">
                     <div className="flex justify-between items-center">
                         <div>
@@ -38,7 +37,6 @@ const DateModal = ({ isOpen, onClose, selectedDate, wishlist, events = [], addEv
                 </div>
 
                 <div className="p-6 max-h-96 overflow-y-auto">
-                    {/* 기존 일정 */}
                     <div className="mb-6">
                         <div className="flex items-center gap-2 mb-3">
                             <span className="text-lg">📋</span>
@@ -75,7 +73,6 @@ const DateModal = ({ isOpen, onClose, selectedDate, wishlist, events = [], addEv
                         )}
                     </div>
 
-                    {/* 새 일정 추가 */}
                     <form onSubmit={handleSubmit} className="mb-4">
                         <div className="flex items-center gap-2 mb-3">
                             <span className="text-lg">➕</span>
@@ -99,7 +96,6 @@ const DateModal = ({ isOpen, onClose, selectedDate, wishlist, events = [], addEv
                     </form>
                 </div>
 
-                {/* Footer */}
                 <div className="bg-slate-50 p-4 flex justify-end">
                     <button
                         className="px-6 py-2 bg-slate-200 hover:bg-slate-300 rounded-xl transition-colors font-medium text-slate-700"

@@ -7,8 +7,8 @@ const Post = ({ id, company, title, region, time, pay, createdAt }) => {
   const { currentUser } = useContext(loginContext)
   const { users } = useContext(userContext)
 
-  const currentUserObj = users.find(user => user.id === currentUser);
-  const isWishlisted = currentUserObj.wishlist.includes(id) || false;
+  const currentUserObj = users?.find(user => user.id === currentUser);
+  const isWishlisted = currentUserObj?.wishlist.includes(id) || false;
 
   const toggleWishlist = (e) => {
     e.stopPropagation();
@@ -72,7 +72,7 @@ const Post = ({ id, company, title, region, time, pay, createdAt }) => {
 
       <div className="text-right ml-4 flex-shrink-0">
         <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-2">
-          {parseInt(pay).toLocaleString()}원
+          {parseInt(pay.replace(/[,원]/g, '')).toLocaleString()}원
         </div>
         <p className="text-xs text-slate-400">
           {new Date(createdAt).toLocaleString('ko-KR', {

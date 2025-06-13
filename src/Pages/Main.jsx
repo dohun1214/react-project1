@@ -5,9 +5,7 @@ function Main() {
     return (
         <>
             <main className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6">
-                {/* 빠른 알바 정보 + 회원 + 달력 */}
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
-                    {/* 알바 정보 */}
                     <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="bg-white p-4 rounded-2xl shadow">
                             CU편의점 12~19시 당일지급
@@ -31,9 +29,7 @@ function Main() {
                         </a>
                     </div>
 
-                    {/* 회원 + 달력 */}
                     <div className="col-span-2 lg:col-span-1 space-y-4">
-                        {/* 회원 메뉴 */}
                         <div className="bg-white p-4 rounded-2xl shadow text-center">
                             <p className="font-semibold text-lg mb-2">회원 메뉴</p>
                             <button onClick={() => { navi("/login") }} className="w-full py-2 mb-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
@@ -47,7 +43,6 @@ function Main() {
                             </div>
                         </div>
 
-                        {/* 달력 */}
                         <div className="bg-white p-4 rounded-2xl shadow">
                             <h2 className="font-semibold mb-2">일정 관리</h2>
                             <div className="grid grid-cols-7 gap-1 text-xs text-center">
@@ -59,7 +54,6 @@ function Main() {
                     </div>
                 </div>
 
-                {/* 알바 카테고리 */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                     <div className="bg-white p-4 rounded-2xl shadow">
                         <h2 className="font-semibold mb-2">지역 · 동네 알바</h2>
@@ -91,7 +85,6 @@ function Main() {
                     </div>
                 </div>
 
-                {/* 채용중인 알바 */}
                 <div>
                     <h2 className="text-xl font-semibold mb-4">채용중인 알바</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

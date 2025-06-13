@@ -11,7 +11,6 @@ const CalendarCell = ({ date, isCurrentMonth, isToday, events, handleDateClick }
                 {date.getDate()}
             </div>
 
-            {/* 일정 표시 영역 */}
             <div className="space-y-1">
                 {events.slice(0, 2).map((event, index) => (
                     <div

@@ -52,7 +52,6 @@ const RecruitUpdate = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-4xl mx-auto">
-        {/* Header */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <div className="flex items-center justify-between">
@@ -72,12 +71,9 @@ const RecruitUpdate = () => {
           </div>
         </div>
 
-        {/* Form */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="space-y-6">
-            {/* Basic Information */}
             <div className="grid lg:grid-cols-2 gap-6">
-              {/* Company Name */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   회사명 <span className="text-red-500">*</span>
@@ -96,7 +92,6 @@ const RecruitUpdate = () => {
                 </div>
               </div>
 
-              {/* Job Title */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   채용 제목 <span className="text-red-500">*</span>
@@ -116,7 +111,6 @@ const RecruitUpdate = () => {
               </div>
             </div>
 
-            {/* Work Conditions */}
             <div>
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
@@ -159,7 +153,6 @@ const RecruitUpdate = () => {
               </div>
             </div>
 
-            {/* Content */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 상세 내용 <span className="text-red-500">*</span>
@@ -174,7 +167,6 @@ const RecruitUpdate = () => {
               </div>
             </div>
 
-            {/* Last Modified Info */}
             <div className="bg-blue-50/50 backdrop-blur-sm rounded-xl border border-blue-200/30 p-4">
               <div className="flex items-center gap-2 text-sm text-blue-700">
                 <span className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
@@ -184,7 +176,6 @@ const RecruitUpdate = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex justify-end gap-4 pt-6 border-t border-slate-200">
               <Button
                 onClick={() => navigate(`/recruit/${form.id}`)}
@@ -208,7 +199,6 @@ const RecruitUpdate = () => {
           </div>
         </div>
 
-        {/* Update Tips */}
         <div className="mt-6 bg-amber-50/50 backdrop-blur-sm rounded-2xl border border-amber-200/30 p-6">
           <h3 className="text-lg font-semibold text-amber-800 mb-3 flex items-center gap-2">
             <span className="w-6 h-6 bg-amber-500 rounded-lg flex items-center justify-center">

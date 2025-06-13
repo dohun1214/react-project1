@@ -40,7 +40,6 @@ const CommunityUpdate = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-3xl mx-auto p-6">
-        {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
@@ -56,10 +55,8 @@ const CommunityUpdate = () => {
           </button>
         </div>
 
-        {/* Form Container */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="space-y-8">
-            {/* Title Input */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-blue-500">📝</span>
@@ -74,7 +71,6 @@ const CommunityUpdate = () => {
               />
             </div>
 
-            {/* Emotion Selector */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-purple-500">⭐</span>
@@ -85,7 +81,6 @@ const CommunityUpdate = () => {
               </div>
             </div>
 
-            {/* Content Textarea */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-green-500">💭</span>
@@ -99,7 +94,6 @@ const CommunityUpdate = () => {
               />
             </div>
 
-            {/* Action Buttons */}
             <div className="flex justify-end gap-4 pt-4">
               <button
                 onClick={() => navigate(-1)}

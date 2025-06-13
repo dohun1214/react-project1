@@ -62,7 +62,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
     return (
         <div className="fixed inset-0 bg-white-900 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
             <div className="bg-white rounded-3xl p-8 w-full max-w-2xl relative shadow-2xl max-h-[80vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-300">
-                {/* 헤더 */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-2">💰 급여 계산기</h2>
@@ -78,7 +77,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                     </button>
                 </div>
 
-                {/* 입력 섹션 */}
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8 border border-blue-100">
                     <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center">
                         <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +86,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                     </h3>
 
                     <div className="space-y-4">
-                        {/* 시급 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-3">💵 시급</label>
                             <div className="flex items-center gap-3">
@@ -102,7 +99,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                             </div>
                         </div>
 
-                        {/* 일일 근무시간 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-3">⏰ 일일 근무시간</label>
                             <select
@@ -117,7 +113,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                             </select>
                         </div>
 
-                        {/* 주 근무일 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-3">📅 주 근무일</label>
                             <select
@@ -132,7 +127,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                             </select>
                         </div>
 
-                        {/* 세금 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-3">🧾 세금</label>
                             <select
@@ -146,7 +140,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                             </select>
                         </div>
 
-                        {/* 주휴수당 - 개선된 Radio 버튼 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-4">🎁 주휴수당</label>
                             <div className="flex gap-3">
@@ -217,7 +210,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                             </div>
                         </div>
 
-                        {/* 수습 - 개선된 Radio 버튼 */}
                         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                             <label className="block text-sm font-semibold text-gray-700 mb-4">👔 수습</label>
                             <div className="flex gap-3">
@@ -289,7 +281,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                         </div>
                     </div>
 
-                    {/* 계산 방법 안내 */}
                     <div className="mt-8 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200">
                         <div className="flex items-start gap-3">
                             <div className="bg-amber-100 p-2 rounded-full">
@@ -310,7 +301,6 @@ const SalaryCalculatorModal = ({ isOpen, onClose, ...post }) => {
                     </div>
                 </div>
 
-                {/* 결과 섹션 */}
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
                     <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                         <svg className="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

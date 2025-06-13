@@ -33,7 +33,6 @@ const CommunityNew = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-3xl mx-auto p-6">
-        {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
@@ -49,10 +48,8 @@ const CommunityNew = () => {
           </button>
         </div>
 
-        {/* Form Container */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="space-y-8">
-            {/* Title Input */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-blue-500">📝</span>
@@ -67,7 +64,6 @@ const CommunityNew = () => {
               />
             </div>
 
-            {/* Emotion Selector */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-purple-500">⭐</span>
@@ -78,7 +74,6 @@ const CommunityNew = () => {
               </div>
             </div>
 
-            {/* Content Textarea */}
             <div>
               <label className=" text-lg font-semibold text-slate-700 mb-3 flex items-center gap-2">
                 <span className="text-green-500">💭</span>
@@ -92,7 +87,6 @@ const CommunityNew = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end pt-4">
               <button
                 onClick={handleSubmit}
@@ -105,7 +99,6 @@ const CommunityNew = () => {
           </div>
         </div>
 
-        {/* Tips Card */}
         <div className="mt-8 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-200/50">
           <h3 className="text-lg font-semibold text-orange-700 mb-3 flex items-center gap-2">
             <span className="text-xl">💡</span>

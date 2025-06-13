@@ -40,7 +40,6 @@ const Login = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-6">
             <div className="w-full max-w-md">
-                {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
                         JOBBLE
@@ -48,10 +47,8 @@ const Login = () => {
                     <p className="text-slate-600">로그인하여 계속하세요</p>
                 </div>
 
-                {/* Login Form */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
                     <div className="space-y-6">
-                        {/* ID Input */}
                         <div>
                             <label htmlFor="id" className="block text-sm font-semibold text-slate-700 mb-2">
                                 아이디
@@ -73,7 +70,6 @@ const Login = () => {
                             </div>
                         </div>
 
-                        {/* Password Input */}
                         <div>
                             <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-2">
                                 비밀번호
@@ -96,7 +92,6 @@ const Login = () => {
                             </div>
                         </div>
 
-                        {/* Login Button */}
                         <button
                             onClick={loginBtn}
                             className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-4 rounded-xl hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -104,7 +99,6 @@ const Login = () => {
                             로그인
                         </button>
 
-                        {/* Register Link */}
                         <div className="text-center pt-4">
                             <p className="text-slate-600 text-sm">
                                 계정이 없으신가요?{' '}
@@ -119,7 +113,6 @@ const Login = () => {
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="text-center mt-8">
                     <p className="text-slate-400 text-xs">
                         © 2024 JOBBLE. All rights reserved.

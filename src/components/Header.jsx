@@ -6,7 +6,6 @@ function Header() {
     return (
         <header className="bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-6 py-4">
-                {/* Top Section */}
                 <div className="flex justify-between items-center mb-4">
                     <Link to="/" className="group">
                         <h1 className="text-4xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-purple-600 hover:via-pink-600 hover:to-blue-600 transition-all duration-500">
@@ -17,12 +16,10 @@ function Header() {
                     <Auth />
                 </div>
 
-                {/* Search Section */}
                 <div className="mb-4">
                     <SearchBar />
                 </div>
 
-                {/* Navigation */}
                 <nav className="bg-white/50 backdrop-blur-sm rounded-2xl border border-white/30 p-2">
                     <div className="grid grid-cols-5 gap-2">
                         <Link

@@ -6,9 +6,10 @@ import { jobPostContext } from '../../contexts/jobPostContext';
 const timeOptions = ['오전', '오후', '풀타임', '협의 후 결정'];
 const daysOptions = ['평일', '주말', '야간', '주휴'];
 const categoryOptions = ['편의점', '음식점', '사무직', '서비스업', '기술직', '기타'];
-const regionOptions = ['강남구', '용산구', '동작구', '송파구', '마포구', '서초구', '영등포구', '종로구', '중구', '관악구', '구로구', '광진구', '성동구', '노원구', '강북구'];
+const regionOptions = ['강남구', '강동구', '강북구', '강서구','관악구', '광진구', '구로구', '금천구','노원구', '도봉구', '동대문구', '동작구','마포구', '서대문구', '서초구', '성동구','성북구', '송파구', '양천구', '영등포구','용산구', '은평구', '종로구', '중구', '중랑구']
 const payOptions = ['10,000원', '10,500원', '11,000원', '12,000원', '12,500원', '협의 후 결정'];
-const preferenceOptions = ['경력자 우대', '초보 가능', '급구', '친절'];
+const preferenceOptions = ['경력자 우대','초보 가능','급구','친절','장기 근무 가능','시간 협의 가능','즉시 출근','주말 근무 가능','유니폼 제공','식사 제공'];
+
 
 const RecruitNew = () => {
   const { jobPosts, setJobPosts } = useContext(jobPostContext);
@@ -44,7 +45,6 @@ const RecruitNew = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-4xl mx-auto">
-        {/* Header */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
@@ -54,12 +54,9 @@ const RecruitNew = () => {
           </div>
         </div>
 
-        {/* Form */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="space-y-6">
-            {/* Basic Information */}
             <div className="grid lg:grid-cols-2 gap-6">
-              {/* Company Name */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   회사명 <span className="text-red-500">*</span>
@@ -78,7 +75,6 @@ const RecruitNew = () => {
                 </div>
               </div>
 
-              {/* Job Title */}
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   채용 제목 <span className="text-red-500">*</span>
@@ -98,7 +94,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* Work Conditions */}
             <div>
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
@@ -141,7 +136,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* Content */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 상세 내용 <span className="text-red-500">*</span>
@@ -156,7 +150,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end gap-4 pt-6 border-t border-slate-200">
               <Button
                 onClick={() => navigate('/recruit')}
@@ -177,7 +170,6 @@ const RecruitNew = () => {
           </div>
         </div>
 
-        {/* Tips */}
         <div className="mt-6 bg-blue-50/50 backdrop-blur-sm rounded-2xl border border-blue-200/30 p-6">
           <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
             <span className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">

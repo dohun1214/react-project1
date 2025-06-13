@@ -36,17 +36,14 @@ const Review = ({ post, onDelete }) => {
         </div>
       </div>
 
-      {/* Content Preview */}
       {post.content && (
         <p className="text-slate-600 text-sm mb-4 line-clamp-2 leading-relaxed">
           {post.content.substring(0, 120)}...
         </p>
       )}
 
-      {/* Divider */}
       <div className="border-t border-slate-100 my-4"></div>
 
-      {/* Stats */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4 text-sm text-slate-500">
           <span className="flex items-center gap-1">
@@ -67,7 +64,6 @@ const Review = ({ post, onDelete }) => {
           </span>
         </div>
 
-        {/* Category Badge */}
         {post.category && (
           <span className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-xs font-medium rounded-full">
             {post.category}

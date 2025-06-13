@@ -21,7 +21,6 @@ function Register() {
     }
 
     const registerBtn = (idValue, pwValue) => {
-        // 유효성 검사
         if (!idValue.trim()) {
             alert("아이디를 입력해주세요");
             return;
@@ -35,7 +34,6 @@ function Register() {
             return;
         }
 
-        // 중복 아이디 체크
         const existingUser = users.find(user => user.id === idValue);
         if (existingUser) {
             alert("이미 존재하는 아이디입니다");
@@ -50,7 +48,6 @@ function Register() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-6">
             <div className="w-full max-w-md">
-                {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
                         JOBBLE
@@ -58,10 +55,8 @@ function Register() {
                     <p className="text-slate-600">새로운 계정을 만들어보세요</p>
                 </div>
 
-                {/* Register Form */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
                     <div className="space-y-6">
-                        {/* ID Input */}
                         <div>
                             <label htmlFor="id" className="block text-sm font-semibold text-slate-700 mb-2">
                                 아이디
@@ -82,7 +77,6 @@ function Register() {
                             </div>
                         </div>
 
-                        {/* Password Input */}
                         <div>
                             <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-2">
                                 비밀번호
@@ -103,7 +97,6 @@ function Register() {
                             </div>
                         </div>
 
-                        {/* Password Confirm Input */}
                         <div>
                             <label htmlFor="passwordConfirm" className="block text-sm font-semibold text-slate-700 mb-2">
                                 비밀번호 확인
@@ -130,7 +123,6 @@ function Register() {
                             )}
                         </div>
 
-                        {/* Register Button */}
                         <button
                             onClick={() => { registerBtn(idValue, pwValue) }}
                             className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-4 rounded-xl hover:from-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl"
@@ -138,7 +130,6 @@ function Register() {
                             회원가입
                         </button>
 
-                        {/* Login Link */}
                         <div className="text-center pt-4">
                             <p className="text-slate-600 text-sm">
                                 이미 계정이 있으신가요?{' '}
@@ -153,7 +144,6 @@ function Register() {
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="text-center mt-8">
                     <p className="text-slate-400 text-xs">
                         © 2024 JOBBLE. All rights reserved.

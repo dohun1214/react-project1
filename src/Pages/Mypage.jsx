@@ -15,18 +15,15 @@ export default function Mypage() {
     const { jobPosts } = useContext(jobPostContext)
     const currentUserObj = users?.find(user => user.id === currentUser);
 
-    // 로컬 스토리지에서 일정 불러오기
     const [events, setEvents] = useState(() => {
         const savedEvents = localStorage.getItem(EVENTS_STORAGE_KEY);
         return savedEvents ? JSON.parse(savedEvents) : {};
     });
 
-    // events가 변경될 때마다 로컬 스토리지에 저장
     useEffect(() => {
         localStorage.setItem(EVENTS_STORAGE_KEY, JSON.stringify(events));
     }, [events]);
 
-    // 일정 추가 함수
     const addEvent = (date, eventText) => {
         const dateKey = date.toISOString().split('T')[0];
         setEvents(prev => {
@@ -38,7 +35,6 @@ export default function Mypage() {
         });
     };
 
-    // 일정 삭제 함수
     const deleteEvent = (date, index) => {
         const dateKey = date.toISOString().split('T')[0];
         setEvents(prev => {
@@ -59,7 +55,6 @@ export default function Mypage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
             <div className="p-6 max-w-6xl mx-auto">
-                {/* Header */}
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                         마이페이지
@@ -67,7 +62,6 @@ export default function Mypage() {
                     <p className="text-slate-600">관심 공고와 일정을 한눈에 관리하세요</p>
                 </div>
 
-                {/* Wishlist Section */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex items-center gap-3 mb-6">
@@ -102,7 +96,6 @@ export default function Mypage() {
                     </div>
                 </div>
 
-                {/* Calendar Section */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">

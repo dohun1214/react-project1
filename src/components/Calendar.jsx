@@ -60,7 +60,6 @@ export default function Calendar({
 
     return (
         <div className="bg-white rounded-xl shadow-sm border border-slate-100">
-            {/* 달력 헤더 */}
             <div className="flex justify-between items-center p-6 border-b border-slate-100">
                 <button
                     onClick={handlePrevMonth}
@@ -79,7 +78,6 @@ export default function Calendar({
                 </button>
             </div>
 
-            {/* 요일 표시 */}
             <div className="grid grid-cols-7 border-b border-slate-100">
                 {renderWeekdays()}
             </div>

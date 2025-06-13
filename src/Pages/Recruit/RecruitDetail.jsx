@@ -35,7 +35,6 @@ const RecruitDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-4xl mx-auto">
-        {/* Header */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <div className="flex justify-between items-start mb-4">
@@ -73,11 +72,8 @@ const RecruitDetail = () => {
           </div>
         </div>
 
-        {/* Job Details */}
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
-          {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Job Info Card */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h2 className="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
@@ -120,7 +116,7 @@ const RecruitDetail = () => {
                     </span>
                     <span className="text-sm font-medium text-slate-600">급여</span>
                   </div>
-                  <p className="text-lg font-bold text-green-600">{parseInt(post.pay).toLocaleString()}원</p>
+                  <p className="text-lg font-bold text-green-600">{ parseInt(post.pay.replace(/[,원]/g, '')).toLocaleString()}원</p>
                 </div>
                 <div className="bg-white/50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -143,7 +139,6 @@ const RecruitDetail = () => {
               </div>
             </div>
 
-            {/* Job Description */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h2 className="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-8 h-8 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -159,9 +154,7 @@ const RecruitDetail = () => {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
-            {/* Salary Calculator */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
@@ -180,7 +173,6 @@ const RecruitDetail = () => {
               </button>
             </div>
 
-            {/* Actions */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
@@ -211,7 +203,6 @@ const RecruitDetail = () => {
           </div>
         </div>
 
-        {/* Modal */}
         {isModalOpen && (
           <SalaryCalculatorModal
             isOpen={isModalOpen}
