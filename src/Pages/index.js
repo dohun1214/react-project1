@@ -14,3 +14,5 @@ export { default as RecruitNew } from './Recruit/RecruitNew';
 export { default as RecruitUpdate } from './Recruit/RecruitUpdate';
 
 export { default as Main } from './Main'
+export { default as UserEditPage } from './UserEditPage'
+export { default as CustomerService } from './CustomerService'

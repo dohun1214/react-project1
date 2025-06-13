@@ -157,44 +157,42 @@ const CommunityDetail = () => {
 
                 <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl border border-white/30 p-8 mb-8">
                     {post.emotion && (
-                        <div className="flex justify-center mb-10">
-                            <div className="relative">
-                                <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200/30 shadow-lg">
-                                    <div className="text-center">
-                                        <div className="relative inline-block mb-6">
-                                            <div className="w-24 h-24 bg-gradient-to-br from-white to-blue-50 rounded-full p-4 shadow-lg border-4 border-white">
-                                                <img
-                                                    src={getEmotionImage(post.emotion)}
-                                                    alt={getEmotionName(post.emotion)}
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-                                            <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                                                <span className="text-white text-sm font-bold">{post.emotion}</span>
-                                            </div>
+                        <div className="flex justify-center mb-8">
+                            <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/30 shadow-md">
+                                <div className="text-center">
+                                    <div className="relative inline-block mb-4">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-white to-blue-50 rounded-full p-3 shadow-md border-2 border-white">
+                                            <img
+                                                src={getEmotionImage(post.emotion)}
+                                                alt={getEmotionName(post.emotion)}
+                                                className="w-full h-full object-contain"
+                                            />
                                         </div>
+                                        <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-sm">
+                                            <span className="text-white text-xs font-bold">{post.emotion}</span>
+                                        </div>
+                                    </div>
 
-                                        <div className="space-y-3">
-                                            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                                {getEmotionName(post.emotion)}
-                                            </h3>
-                                            <div className="flex justify-center space-x-1">
-                                                {Array.from({ length: 5 }, (_, index) => (
-                                                    <span
-                                                        key={index}
-                                                        className={`text-2xl transition-all duration-200 ${index < post.emotion
-                                                                ? 'text-yellow-500 transform scale-110'
-                                                                : 'text-slate-300'
-                                                            }`}
-                                                    >
-                                                        ★
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            <p className="text-sm text-slate-600 font-medium">
-                                                {post.emotion}/5점 평가
-                                            </p>
+                                    <div className="space-y-2">
+                                        <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                            {getEmotionName(post.emotion)}
+                                        </h3>
+                                        <div className="flex justify-center space-x-1">
+                                            {Array.from({ length: 5 }, (_, index) => (
+                                                <span
+                                                    key={index}
+                                                    className={`text-lg transition-all duration-200 ${index < post.emotion
+                                                        ? 'text-yellow-500 transform scale-105'
+                                                        : 'text-slate-300'
+                                                        }`}
+                                                >
+                                                    ★
+                                                </span>
+                                            ))}
                                         </div>
+                                        <p className="text-xs text-slate-600 font-medium">
+                                            {post.emotion}/5점 평가
+                                        </p>
                                     </div>
                                 </div>
                             </div>

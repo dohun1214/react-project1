@@ -44,7 +44,6 @@ export default function Mypage() {
                 ...prev,
                 [dateKey]: updatedEvents
             };
-            // 일정이 모두 삭제된 경우 해당 날짜 키 제거
             if (updatedEvents.length === 0) {
                 delete newEvents[dateKey];
             }
@@ -96,26 +95,71 @@ export default function Mypage() {
                     </div>
                 </div>
 
+                <div className="mb-8">
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                                <span className="text-white text-xl">📅</span>
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-bold text-slate-800">일정 관리</h2>
+                                <p className="text-slate-500 text-sm">면접 일정과 중요한 날짜를 기록하세요</p>
+                            </div>
+                        </div>
+
+                        <Calendar
+                            currentDate={currentDate}
+                            setCurrentDate={setCurrentDate}
+                            events={events}
+                            onDateClick={(date) => {
+                                setSelectedDate(date);
+                                setIsModalOpen(true);
+                            }}
+                        />
+                    </div>
+                </div>
+
+                {/* 회원 정보 섹션 */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                            <span className="text-white text-xl">📅</span>
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
+                                <span className="text-white text-xl">👤</span>
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-bold text-slate-800">회원 정보</h2>
+                                <p className="text-slate-500 text-sm">개인 정보를 확인하고 수정하세요</p>
+                            </div>
                         </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-slate-800">일정 관리</h2>
-                            <p className="text-slate-500 text-sm">면접 일정과 중요한 날짜를 기록하세요</p>
-                        </div>
+                        <Link to="/user/edit">
+                            <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-4 py-2 rounded-xl font-medium transition-all duration-200">
+                                수정
+                            </button>
+                        </Link>
                     </div>
 
-                    <Calendar
-                        currentDate={currentDate}
-                        setCurrentDate={setCurrentDate}
-                        events={events}
-                        onDateClick={(date) => {
-                            setSelectedDate(date);
-                            setIsModalOpen(true);
-                        }}
-                    />
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">아이디</label>
+                            <div className="px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600">
+                                {currentUserObj?.id || ''}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">비밀번호</label>
+                            <div className="px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600">
+                                ••••••••
+                            </div>
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">이메일</label>
+                            <div className="px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600">
+                                {currentUserObj?.email || ''}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <DateModal

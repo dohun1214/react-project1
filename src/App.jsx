@@ -4,8 +4,10 @@ import { Header, Footer } from './components';
 import {
   Main, Login, Register, Mypage, Notfound,
   CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail,
-  RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail
-} from './pages';
+  RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail,
+  UserEditPage,
+  CustomerService
+} from './Pages';
 import {
   jobPostContext, initialJobPosts,
   userContext, initialUsers,
@@ -13,6 +15,7 @@ import {
   communityContext, initialCommunityPosts
 } from './contexts';
 import SearchResults from './Pages/SearchResults';
+import ResumeManagement from './Pages/ResumeManagement';
 
 
 const userReducer = (users, action) => {
@@ -104,10 +107,13 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
+                <Route path="/user/edit" element={isLogin ? <UserEditPage /> : <Login />} />
                 <Route path='/communityboard' element={<CommunityBoard />} />
                 <Route path="/communitynew" element={<CommunityNew />} />
                 <Route path="/edit/:id" element={<CommunityUpdate />} />
                 <Route path="/post/:id" element={<CommunityDetail />} />
+                <Route path="/resume" element={isLogin ? <ResumeManagement /> : <Login />} />
+                <Route path="/customer-service" element={<CustomerService />} />
                 <Route path='*' element={<Notfound />} />
               </Routes>
 
