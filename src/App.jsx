@@ -51,7 +51,7 @@ const userReducer = (users, action) => {
             wishlist: user.wishlist.filter(id => id !== action.payload.postId)
           }
         }
-        return users;
+        return user;
       })
     case 'APPLY_JOB':
       return users.map(u => {

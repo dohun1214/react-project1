@@ -16,7 +16,7 @@ const RecruitDetail = () => {
   const { userDispatch } = useContext(userContext);
   const { currentUser } = useContext(loginContext);
 
-  usePageTitle(`${post.title} `)
+  usePageTitle(post ? `${post.title} ` : "채용 공고")
 
   const KAKAO_API_KEY = 'ba4865428f815d907f9818a916f716e9';
 
