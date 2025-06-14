@@ -92,6 +92,15 @@ const Login = () => {
                             </div>
                         </div>
 
+                        <div className="flex justify-end">
+                            <button
+                                onClick={() => navi("/forgot-password")}
+                                className="text-sm text-blue-600 hover:text-purple-600 font-medium transition-colors duration-200 hover:underline"
+                            >
+                                비밀번호를 잊으셨나요?
+                            </button>
+                        </div>
+
                         <button
                             onClick={loginBtn}
                             className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-4 rounded-xl hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl"

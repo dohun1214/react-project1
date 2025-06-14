@@ -27,7 +27,7 @@ const CustomerService = () => {
             },
             {
                 question: "비밀번호를 잊어버렸어요",
-                answer: "현재는 비밀번호 찾기 기능이 준비 중입니다. 고객센터로 문의해주시면 도움을 드리겠습니다."
+                answer: "로그인 페이지에서 '비밀번호를 잊으셨나요?' 링크를 클릭하시면 비밀번호 찾기 페이지로 이동합니다. 가입 시 사용한 아이디와 이메일을 입력하시면 비밀번호를 확인할 수 있습니다."
             }
         ],
         job: [
@@ -144,8 +144,8 @@ const CustomerService = () => {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`py-3 px-4 rounded-xl font-medium transition-all duration-200 ${activeTab === tab.id
-                                            ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg'
-                                            : 'text-slate-700 hover:bg-white/50'
+                                        ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg'
+                                        : 'text-slate-700 hover:bg-white/50'
                                         }`}
                                 >
                                     <div className="flex flex-col items-center gap-1">
@@ -177,8 +177,8 @@ const CustomerService = () => {
                                             key={category.id}
                                             onClick={() => setSelectedCategory(category.id)}
                                             className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${selectedCategory === category.id
-                                                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                                                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                                ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
+                                                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                                 }`}
                                         >
                                             <span className="mr-2">{category.icon}</span>

@@ -5,7 +5,7 @@ export const jobPostContext = createContext({
   setJobPosts: () => { },
 });
 
-// id, company, title, region, time, pay, category, condition, preference, content, author, createdAt
+// id, company, title, region, time, pay, category, condition, preference, content, author, createdAt, address, coordinates
 export const initialJobPosts = [
   {
     id: 1,
@@ -20,6 +20,8 @@ export const initialJobPosts = [
     content: '주휴수당 포함, 물품 정리 및 계산대 업무',
     author: '관리자',
     createdAt: new Date('2025-10-03T10:00:00').toISOString(),
+    address: '서울 구로구 고척로 123',
+    coordinates: { lat: 37.5034, lng: 126.8657 }
   },
   {
     id: 2,
@@ -30,10 +32,12 @@ export const initialJobPosts = [
     pay: '10000원',
     category: '음식점',
     condition: '평일',
-    preference: '경력자 우대', 
+    preference: '경력자 우대',
     content: '도시락 조리 보조, 포장, 배달 준비 업무',
     author: '매니저',
     createdAt: new Date('2025-10-04T09:30:00').toISOString(),
+    address: '서울 강남구 테헤란로 456',
+    coordinates: { lat: 37.5065, lng: 127.0535 }
   },
   {
     id: 3,
@@ -48,6 +52,8 @@ export const initialJobPosts = [
     content: '김밥 및 반찬 포장 보조, 매장 정리',
     author: '점장',
     createdAt: new Date('2025-10-05T11:00:00').toISOString(),
+    address: '서울 마포구 홍익로 789',
+    coordinates: { lat: 37.5563, lng: 126.9240 }
   },
   {
     id: 4,
@@ -62,6 +68,8 @@ export const initialJobPosts = [
     content: '계약서 스캔, 서류 정리, 간단한 자료 입력 업무',
     author: '인사담당',
     createdAt: new Date('2025-10-06T08:45:00').toISOString(),
+    address: '서울 강서구 마곡중앙로 321',
+    coordinates: { lat: 37.5584, lng: 126.8306 }
   },
   {
     id: 5,
@@ -72,10 +80,12 @@ export const initialJobPosts = [
     pay: '11500원',
     category: '카페',
     condition: '평일',
-    preference: '친절', 
+    preference: '친절',
     content: '음료 제조, 고객응대, 매장 청소',
     author: '점장',
     createdAt: new Date('2025-10-07T14:00:00').toISOString(),
+    address: '서울 영등포구 여의대로 654',
+    coordinates: { lat: 37.5263, lng: 126.9292 }
   },
   {
     id: 6,
@@ -86,9 +96,11 @@ export const initialJobPosts = [
     pay: '10500원',
     category: '물류',
     condition: '주말',
-    preference: '주말 근무 가능', 
+    preference: '주말 근무 가능',
     content: '상품 피킹, 패킹, 발송 준비 업무',
     author: '현장매니저',
     createdAt: new Date('2025-10-08T07:50:00').toISOString(),
+    address: '서울 양천구 목동동로 987',
+    coordinates: { lat: 37.5311, lng: 126.8754 }
   },
 ];

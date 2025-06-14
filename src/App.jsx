@@ -6,7 +6,9 @@ import {
   CommunityBoard, CommunityNew, CommunityUpdate, CommunityDetail,
   RecruitBoard, RecruitNew, RecruitUpdate, RecruitDetail,
   UserEditPage,
-  CustomerService
+  CustomerService,
+  ForgotPassword,
+  SearchResults
 } from './Pages';
 import {
   jobPostContext, initialJobPosts,
@@ -14,8 +16,7 @@ import {
   loginContext,
   communityContext, initialCommunityPosts
 } from './contexts';
-import SearchResults from './Pages/SearchResults';
-import ResumeManagement from './Pages/ResumeManagement';
+
 
 
 const userReducer = (users, action) => {
@@ -114,6 +115,7 @@ function App() {
                 <Route path="/recruit/:id" element={<RecruitDetail />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/forgot-password' element={<ForgotPassword />} /> 
                 <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
                 <Route path="/user/edit" element={isLogin ? <UserEditPage /> : <Login />} />
                 <Route path='/communityboard' element={<CommunityBoard />} />

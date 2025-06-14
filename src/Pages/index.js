@@ -16,3 +16,5 @@ export { default as RecruitUpdate } from './Recruit/RecruitUpdate';
 export { default as Main } from './Main'
 export { default as UserEditPage } from './UserEditPage'
 export { default as CustomerService } from './CustomerService'
+export { default as ForgotPassword } from './ForgotPassword'
+export { default as SearchResults } from './SearchResults'
