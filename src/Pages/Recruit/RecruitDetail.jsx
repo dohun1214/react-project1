@@ -1,14 +1,17 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, SalaryCalculatorModal } from '../../components';
-import { jobPostContext } from '../../contexts'
+import { Button, SalaryCalculatorModal, DeleteConfirmModal } from '../../components';
+import { jobPostContext, loginContext, userContext } from '../../contexts'
 
 const RecruitDetail = () => {
   const { id } = useParams();
-  const { jobPosts } = useContext(jobPostContext);
+  const { jobPosts, setJobPosts } = useContext(jobPostContext);
   const nav = useNavigate();
   const post = jobPosts.find((p) => p.id === Number(id));
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const { userDispatch } = useContext(userContext);
+  const { currentUser } = useContext(loginContext);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -31,6 +34,34 @@ const RecruitDetail = () => {
   }
 
   const time = new Date(post.createdAt).toLocaleString();
+
+  const handleApply = () => {
+    if (!currentUser) {
+      alert('로그인 후 지원 가능합니다.');
+      return;
+    }
+    userDispatch({
+      type: 'APPLY_JOB',
+      payload: { userId: currentUser, job: post }
+    });
+    alert('지원 완료되었습니다!');
+  };
+
+  const handleDelete = () => {
+    setShowDeleteConfirm(true);
+  };
+
+  const confirmDelete = () => {
+    const updatedPosts = jobPosts.filter((p) => p.id !== post.id);
+    setJobPosts(updatedPosts);
+    setShowDeleteConfirm(false);
+    alert('공고가 삭제되었습니다.');
+    nav('/recruit');
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteConfirm(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -98,7 +129,7 @@ const RecruitDetail = () => {
                     </span>
                     <span className="text-sm font-medium text-slate-600">근무요일</span>
                   </div>
-                  <p className="text-slate-800 font-medium">{post.days}</p>
+                  <p className="text-slate-800 font-medium">{post.condition}</p>
                 </div>
                 <div className="bg-white/50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -116,7 +147,7 @@ const RecruitDetail = () => {
                     </span>
                     <span className="text-sm font-medium text-slate-600">급여</span>
                   </div>
-                  <p className="text-lg font-bold text-green-600">{ parseInt(post.pay.replace(/[,원]/g, '')).toLocaleString()}원</p>
+                  <p className="text-lg font-bold text-green-600">{parseInt(post.pay.replace(/[,원]/g, '')).toLocaleString()}원</p>
                 </div>
                 <div className="bg-white/50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -155,6 +186,29 @@ const RecruitDetail = () => {
           </div>
 
           <div className="space-y-6">
+            {/* 지원하기 버튼 */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-200/50 p-6">
+              <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-sm">🚀</span>
+                </span>
+                지원하기
+              </h3>
+              <p className="text-slate-600 text-sm mb-4">
+                이 공고에 관심이 있으시나요?
+              </p>
+              <Button
+                onClick={handleApply}
+                className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-4 py-3 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <span>✨</span>
+                  지원하기
+                </span>
+              </Button>
+            </div>
+
+            {/* 급여 계산기 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                 <span className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
@@ -173,9 +227,10 @@ const RecruitDetail = () => {
               </button>
             </div>
 
+            {/* 관리 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <span className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                   <span className="text-white text-sm">⚙️</span>
                 </span>
                 관리
@@ -183,11 +238,20 @@ const RecruitDetail = () => {
               <div className="space-y-3">
                 <Button
                   onClick={() => nav(`/recruit/edit/${post.id}`)}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
+                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <span>✏️</span>
                     수정하기
+                  </span>
+                </Button>
+                <Button
+                  onClick={handleDelete}
+                  className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <span>🗑️</span>
+                    삭제하기
                   </span>
                 </Button>
                 <Link to="/recruit" className="block">
@@ -202,6 +266,16 @@ const RecruitDetail = () => {
             </div>
           </div>
         </div>
+
+        {/* 삭제 확인 모달 컴포넌트 사용 */}
+        <DeleteConfirmModal
+          isOpen={showDeleteConfirm}
+          onClose={cancelDelete}
+          onConfirm={confirmDelete}
+          title={post.title}
+          company={post.company}
+          region={post.region}
+        />
 
         {isModalOpen && (
           <SalaryCalculatorModal

@@ -50,6 +50,14 @@ const userReducer = (users, action) => {
         }
         return users;
       })
+    case 'APPLY_JOB':
+      return users.map(u => {
+        if (u.id === action.payload.userId) {
+          const apps = u.applications || [];
+          return { ...u, applications: [...apps, action.payload.job] };
+        }
+        return u;
+      });
     default:
       return users
   }

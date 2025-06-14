@@ -8,12 +8,12 @@ const EVENTS_STORAGE_KEY = "calendar_events";
 export default function Mypage() {
     const { currentUser } = useContext(loginContext);
     const { users } = useContext(userContext);
-    const wishlist = users?.find(user => user.id == currentUser)?.wishlist || [];
     const [currentDate, setCurrentDate] = useState(new Date());
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const { jobPosts } = useContext(jobPostContext)
     const currentUserObj = users?.find(user => user.id === currentUser);
+    const applications = currentUserObj.applications || [];
 
     const [events, setEvents] = useState(() => {
         const savedEvents = localStorage.getItem(EVENTS_STORAGE_KEY);
@@ -61,6 +61,7 @@ export default function Mypage() {
                     <p className="text-slate-600">관심 공고와 일정을 한눈에 관리하세요</p>
                 </div>
 
+                {/* 관심 공고 */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex items-center gap-3 mb-6">
@@ -74,8 +75,8 @@ export default function Mypage() {
                         </div>
 
                         <div className="space-y-4">
-                            {jobPosts.filter(item => currentUserObj.wishlist.includes(item.id)).length > 0 ? (
-                                jobPosts.filter(item => currentUserObj.wishlist.includes(item.id)).map(item => (
+                            {jobPosts.filter(item => currentUserObj?.wishlist?.includes(item.id)).length > 0 ? (
+                                jobPosts.filter(item => currentUserObj?.wishlist?.includes(item.id)).map(item => (
                                     <div key={item.id} className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
                                         <Link to={`/recruit/${item.id}`}>
                                             <Post id={item.id} {...item} />
@@ -95,6 +96,62 @@ export default function Mypage() {
                     </div>
                 </div>
 
+                {/* 지원 공고  */}
+                <div className="mb-8">
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-xl border border-blue-200/50 p-6 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-200/30 to-transparent rounded-full -mr-16 -mt-16"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-indigo-200/30 to-transparent rounded-full -ml-12 -mb-12"></div>
+
+                        <div className="relative z-10">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <span className="text-white text-xl">🎯</span>
+                                </div>
+                                <div>
+                                    <h2 className="text-2xl font-bold text-slate-800">지원 공고</h2>
+                                    <p className="text-blue-600 text-sm font-medium">내가 지원한 채용 공고를 확인하세요</p>
+                                </div>
+                                <div className="ml-auto">
+                                    <span className="bg-blue-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
+                                        {applications.length}개
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                {applications.length > 0 ? (
+                                    applications.map(job => (
+                                        <div key={job.id} className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-200/50 hover:border-blue-300">
+                                            <div className="flex items-start gap-3">
+                                                <div className="w-3 h-3 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                                <div className="flex-1">
+                                                    <Link to={`/recruit/${job.id}`}>
+                                                        <Post id={job.id} {...job} />
+                                                    </Link>
+                                                </div>
+                                                <div className="flex-shrink-0">
+                                                    <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-medium">
+                                                        지원완료
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="text-center py-16">
+                                        <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <span className="text-3xl text-blue-400">🚀</span>
+                                        </div>
+                                        <p className="text-slate-700 font-medium mb-2">아직 지원한 공고가 없습니다</p>
+                                        <p className="text-blue-600 text-sm">채용 공고 상세에서 지원하기 버튼을 눌러보세요</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 일정 관리 */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex items-center gap-3 mb-6">
@@ -119,7 +176,7 @@ export default function Mypage() {
                     </div>
                 </div>
 
-                {/* 회원 정보 섹션 */}
+                {/* 회원 정보 */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                     <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-3">
@@ -166,7 +223,7 @@ export default function Mypage() {
                     isOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                     selectedDate={selectedDate}
-                    wishlist={wishlist}
+                    wishlist={currentUserObj?.wishlist || []}
                     events={selectedDate ? events[selectedDate.toISOString().split('T')[0]] || [] : []}
                     addEvent={addEvent}
                     deleteEvent={deleteEvent}
