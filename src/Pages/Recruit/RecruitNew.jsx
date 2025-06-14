@@ -189,7 +189,6 @@ const RecruitNew = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-4xl mx-auto">
-        {/* 헤더 */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
@@ -202,7 +201,6 @@ const RecruitNew = () => {
 
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="space-y-6">
-            {/* 기본 정보 */}
             <div className="grid lg:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -231,7 +229,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* 근무 조건 */}
             <div>
               <h3 className="text-lg font-semibold text-slate-800 mb-4">근무 조건</h3>
               <div className="grid lg:grid-cols-3 gap-4">
@@ -261,7 +258,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* 위치 설정 */}
             <div>
               <h3 className="text-lg font-semibold text-slate-800 mb-4">🗺️ 근무 위치</h3>
 
@@ -299,7 +295,6 @@ const RecruitNew = () => {
                   </Button>
                 </div>
 
-                {/* 지도 */}
                 {showMap && (
                   <div className="bg-white/50 rounded-xl p-4 border border-slate-200">
                     <div className="mb-3">
@@ -329,7 +324,6 @@ const RecruitNew = () => {
               </div>
             </div>
 
-            {/* 상세 내용 */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 상세 내용 <span className="text-red-500">*</span>
@@ -342,7 +336,6 @@ const RecruitNew = () => {
               />
             </div>
 
-            {/* 버튼 */}
             <div className="flex justify-end gap-4 pt-6 border-t border-slate-200">
               <Button
                 onClick={() => navigate('/recruit')}
@@ -360,7 +353,6 @@ const RecruitNew = () => {
           </div>
         </div>
 
-        {/* 안내 */}
         <div className="mt-6 bg-blue-50/50 backdrop-blur-sm rounded-2xl border border-blue-200/30 p-6">
           <h3 className="text-lg font-semibold text-blue-800 mb-3">💡 사용 안내</h3>
           <div className="grid md:grid-cols-2 gap-4 text-sm text-blue-700">

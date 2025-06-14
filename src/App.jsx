@@ -102,10 +102,6 @@ function App() {
             <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
               <userContext.Provider value={{ users, userDispatch }}>
 
-                {/* 테스트용 코드 */}
-                <button onClick={() => { console.log(users) }}>user</button>
-                <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
-                <button onClick={() => { console.log(currentUser) }}>로그인한 유저</button>
 
                 <Header />
 

@@ -24,7 +24,6 @@ export default function Quiz() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="p-6 max-w-4xl mx-auto">
-          {/* 헤더 */}
           <div className="mb-8">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
@@ -35,9 +34,7 @@ export default function Quiz() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* 메인 결과 */}
             <div className="lg:col-span-2 space-y-6">
-              {/* 유형 결과 */}
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                 <div className="text-center mb-6">
                   <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg px-4 py-2 rounded-full font-bold mb-4">
@@ -72,7 +69,6 @@ export default function Quiz() {
                 </div>
               </div>
 
-              {/* 능력치 분석 */}
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                 <h3 className="text-xl font-semibold text-slate-800 mb-6 flex items-center gap-2">
                   <span className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
@@ -109,9 +105,7 @@ export default function Quiz() {
               </div>
             </div>
 
-            {/* 사이드바 */}
             <div className="space-y-6">
-              {/* 추천 액션 */}
               <div className="bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-200/50 p-6">
                 <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                   <span className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
@@ -133,7 +127,6 @@ export default function Quiz() {
                 </Button>
               </div>
 
-              {/* 다시하기 */}
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                 <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
                   <span className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
@@ -168,7 +161,6 @@ export default function Quiz() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-2xl mx-auto">
-        {/* 헤더 */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
@@ -176,7 +168,6 @@ export default function Quiz() {
             </h1>
             <p className="text-slate-600">나에게 딱 맞는 알바 유형을 찾아보세요</p>
 
-            {/* 프로그레스 바 */}
             <div className="mt-6">
               <div className="flex justify-between text-sm font-medium text-slate-600 mb-2">
                 <span>진행률</span>
@@ -192,7 +183,6 @@ export default function Quiz() {
           </div>
         </div>
 
-        {/* 질문 */}
         <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -230,7 +220,6 @@ export default function Quiz() {
           </div>
         </div>
 
-        {/* 안내 */}
         <div className="mt-6 bg-blue-50/50 backdrop-blur-sm rounded-2xl border border-blue-200/30 p-6">
           <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
             <span className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">

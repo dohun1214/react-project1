@@ -107,7 +107,6 @@ const ResumeManagement = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
             <div className="p-6 max-w-6xl mx-auto">
-                {/* 헤더 */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex justify-between items-center">
@@ -135,12 +134,9 @@ const ResumeManagement = () => {
                     </div>
                 </div>
 
-                {/* 탭 네비게이션 */}
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                {/* 탭 내용 */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
-                    {/* 기본정보 탭 */}
                     {activeTab === 'basic' && (
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">기본 정보</h2>
@@ -183,7 +179,6 @@ const ResumeManagement = () => {
                         </div>
                     )}
 
-                    {/* 학력사항 탭 */}
                     {activeTab === 'education' && (
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">학력 사항</h2>
@@ -216,7 +211,6 @@ const ResumeManagement = () => {
                         </div>
                     )}
 
-                    {/* 경력사항 탭 */}
                     {activeTab === 'experience' && (
                         <div className="space-y-6">
                             <div className="flex justify-between items-center">
@@ -253,7 +247,6 @@ const ResumeManagement = () => {
                         </div>
                     )}
 
-                    {/* 자기소개서 탭 */}
                     {activeTab === 'cover' && (
                         <div className="space-y-6">
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">자기소개서</h2>
@@ -291,7 +284,6 @@ const ResumeManagement = () => {
                     )}
                 </div>
 
-                {/* 도움말 */}
                 <div className="mt-6 bg-blue-50/50 backdrop-blur-sm rounded-2xl border border-blue-200/30 p-6">
                     <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center gap-2">
                         <span className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">

@@ -155,7 +155,6 @@ const RecruitDetail = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="p-6 max-w-4xl mx-auto">
-        {/* 헤더 */}
         <div className="mb-8">
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
             <div className="flex justify-between items-start mb-4">
@@ -185,7 +184,6 @@ const RecruitDetail = () => {
 
         <div className="grid lg:grid-cols-3 gap-6 mb-8">
           <div className="lg:col-span-2 space-y-6">
-            {/* 근무 조건 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">📋 근무 조건</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -218,7 +216,6 @@ const RecruitDetail = () => {
               </div>
             </div>
 
-            {/* 위치 정보 */}
             {post.address && (
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                 <h2 className="text-xl font-semibold text-slate-800 mb-4">🗺️ 근무 위치</h2>
@@ -260,7 +257,6 @@ const RecruitDetail = () => {
                   </div>
                 </div>
 
-                {/* 지도 표시 */}
                 {showMap && post.coordinates && (
                   <div className="bg-white/50 rounded-xl p-4 border border-slate-200">
                     <div className="mb-3 flex items-center justify-between">
@@ -288,7 +284,6 @@ const RecruitDetail = () => {
               </div>
             )}
 
-            {/* 상세 내용 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h2 className="text-xl font-semibold text-slate-800 mb-4">📝 상세 내용</h2>
               <div className="bg-white/50 rounded-xl p-6">
@@ -299,9 +294,7 @@ const RecruitDetail = () => {
             </div>
           </div>
 
-          {/* 사이드바 */}
           <div className="space-y-6">
-            {/* 지원하기 */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-200/50 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4">🚀 지원하기</h3>
               <p className="text-slate-600 text-sm mb-4">
@@ -315,7 +308,6 @@ const RecruitDetail = () => {
               </Button>
             </div>
 
-            {/* 급여 계산기 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4">🧮 급여 계산기</h3>
               <p className="text-slate-600 text-sm mb-4">
@@ -329,7 +321,6 @@ const RecruitDetail = () => {
               </button>
             </div>
 
-            {/* 관리 */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-4">⚙️ 관리</h3>
               <div className="space-y-3">
@@ -355,7 +346,6 @@ const RecruitDetail = () => {
           </div>
         </div>
 
-        {/* 모달들 */}
         <DeleteConfirmModal
           isOpen={showDeleteConfirm}
           onClose={cancelDelete}

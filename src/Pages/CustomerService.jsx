@@ -133,7 +133,6 @@ const CustomerService = () => {
                     </div>
                 </div>
 
-                {/* 탭 네비게이션 */}
                 <div className="mb-6">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-2">
                         <div className="grid grid-cols-3 gap-2">
@@ -160,14 +159,11 @@ const CustomerService = () => {
                     </div>
                 </div>
 
-                {/* 탭 콘텐츠 */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-8">
-                    {/* FAQ 탭 */}
                     {activeTab === 'faq' && (
                         <div>
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">자주 묻는 질문</h2>
 
-                            {/* FAQ 카테고리 */}
                             <div className="mb-6">
                                 <div className="flex gap-2">
                                     {[
@@ -190,7 +186,6 @@ const CustomerService = () => {
                                 </div>
                             </div>
 
-                            {/* FAQ 리스트 */}
                             <div className="space-y-4">
                                 {faqData[selectedCategory].map((faq, index) => (
                                     <div key={index} className="bg-white/50 rounded-xl p-6 border border-slate-200">
@@ -207,7 +202,6 @@ const CustomerService = () => {
                         </div>
                     )}
 
-                    {/* 문의하기 탭 */}
                     {activeTab === 'inquiry' && (
                         <div>
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">문의하기</h2>
@@ -272,7 +266,6 @@ const CustomerService = () => {
                         </div>
                     )}
 
-                    {/* 공지사항 탭 */}
                     {activeTab === 'notice' && (
                         <div>
                             <h2 className="text-2xl font-bold text-slate-800 mb-6">공지사항</h2>
@@ -293,7 +286,6 @@ const CustomerService = () => {
                     )}
                 </div>
 
-                {/* 연락처 정보 */}
                 <div className="mt-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-200/50 p-6">
                     <h3 className="text-lg font-semibold text-orange-700 mb-4 flex items-center gap-2">
                         <span className="text-xl">📞</span>

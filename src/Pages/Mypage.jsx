@@ -63,7 +63,6 @@ export default function Mypage() {
                     <p className="text-slate-600">관심 공고와 일정을 한눈에 관리하세요</p>
                 </div>
 
-                {/* 관심 공고 */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex items-center gap-3 mb-6">
@@ -98,7 +97,6 @@ export default function Mypage() {
                     </div>
                 </div>
 
-                {/* 지원 공고  */}
                 <div className="mb-8">
                     <div className="bg-gradient-to-br from-blue-50 to-indigo-100 backdrop-blur-sm rounded-2xl shadow-xl border border-blue-200/50 p-6 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-200/30 to-transparent rounded-full -mr-16 -mt-16"></div>
@@ -153,7 +151,6 @@ export default function Mypage() {
                     </div>
                 </div>
 
-                {/* 일정 관리 */}
                 <div className="mb-8">
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                         <div className="flex items-center gap-3 mb-6">
@@ -178,7 +175,6 @@ export default function Mypage() {
                     </div>
                 </div>
 
-                {/* 회원 정보 */}
                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 p-6">
                     <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-3">
