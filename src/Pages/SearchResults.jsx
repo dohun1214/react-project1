@@ -1,8 +1,10 @@
 import { useSearchParams, Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { jobPostContext } from '../contexts/jobPostContext';
+import usePageTitle from '../hooks/usePageTitle';
 
 function SearchResults() {
+  usePageTitle("검색 결과")
   const [searchParams] = useSearchParams();
   const keyword = searchParams.get('keyword');
   const { jobPosts } = useContext(jobPostContext);

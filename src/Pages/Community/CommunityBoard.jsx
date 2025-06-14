@@ -2,8 +2,11 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Review, Button } from '../../components';
 import { communityContext } from '../../contexts/communityContext';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const CommunityBoard = () => {
+  usePageTitle("알바 커뮤니티 - 경험담과 후기 공유");
+
   const { communityPosts, communityPostDispatch } = useContext(communityContext);
   const [searchTerm, setSearchTerm] = useState('');
 

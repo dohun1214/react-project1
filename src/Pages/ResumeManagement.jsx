@@ -1,8 +1,10 @@
 import { useState, useContext } from 'react';
 import { loginContext } from '../contexts';
 import { TabNavigation, FormInput, ExperienceCard } from '../components';
+import usePageTitle from '../hooks/usePageTitle'
 
 const ResumeManagement = () => {
+    usePageTitle("이력서 관리")
     const { currentUser, isLogin } = useContext(loginContext);
     const [activeTab, setActiveTab] = useState('basic');
 

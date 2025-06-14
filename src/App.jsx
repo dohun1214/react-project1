@@ -8,7 +8,7 @@ import {
   UserEditPage,
   CustomerService,
   ForgotPassword,
-  SearchResults
+  SearchResults, Quiz,ResumeManagement
 } from './Pages';
 import {
   jobPostContext, initialJobPosts,
@@ -16,6 +16,8 @@ import {
   loginContext,
   communityContext, initialCommunityPosts
 } from './contexts';
+import { QuizProvider } from './contexts/QuizContext';
+
 
 
 
@@ -94,46 +96,48 @@ function App() {
 
   return (
     <>
-      <communityContext.Provider value={{ communityPosts, communityPostDispatch }}>
-        <loginContext.Provider value={{ isLogin, setIsLogin, currentUser, setCurrentUser }}>
-          <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
-            <userContext.Provider value={{ users, userDispatch }}>
+      <QuizProvider>
+        <communityContext.Provider value={{ communityPosts, communityPostDispatch }}>
+          <loginContext.Provider value={{ isLogin, setIsLogin, currentUser, setCurrentUser }}>
+            <jobPostContext.Provider value={{ jobPosts, setJobPosts }}>
+              <userContext.Provider value={{ users, userDispatch }}>
 
-              {/* 테스트용 코드 */}
-              <button onClick={() => { console.log(users) }}>user</button>
-              <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
-              <button onClick={() => { console.log(currentUser) }}>로그인한 유저</button>
+                {/* 테스트용 코드 */}
+                <button onClick={() => { console.log(users) }}>user</button>
+                <button onClick={() => { console.log(isLogin) }}>로그인 상태</button>
+                <button onClick={() => { console.log(currentUser) }}>로그인한 유저</button>
 
-              <Header />
+                <Header />
 
-              <Routes>
-                <Route path='/' element={<Main />} />
-                <Route path="/search" element={<SearchResults />} />
-                <Route path="/recruit" element={<RecruitBoard />} />
-                <Route path="/recruit/new" element={<RecruitNew />} />
-                <Route path="/recruit/edit/:id" element={<RecruitUpdate />} />
-                <Route path="/recruit/:id" element={<RecruitDetail />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/forgot-password' element={<ForgotPassword />} /> 
-                <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
-                <Route path="/user/edit" element={isLogin ? <UserEditPage /> : <Login />} />
-                <Route path='/communityboard' element={<CommunityBoard />} />
-                <Route path="/communitynew" element={<CommunityNew />} />
-                <Route path="/edit/:id" element={<CommunityUpdate />} />
-                <Route path="/post/:id" element={<CommunityDetail />} />
-                <Route path="/resume" element={isLogin ? <ResumeManagement /> : <Login />} />
-                <Route path="/customer-service" element={<CustomerService />} />
-                <Route path='*' element={<Notfound />} />
-              </Routes>
+                <Routes>
+                  <Route path='/' element={<Main />} />
+                  <Route path="/search" element={<SearchResults />} />
+                  <Route path="/recruit" element={<RecruitBoard />} />
+                  <Route path="/recruit/new" element={<RecruitNew />} />
+                  <Route path="/recruit/edit/:id" element={<RecruitUpdate />} />
+                  <Route path="/recruit/:id" element={<RecruitDetail />} />
+                  <Route path='/login' element={<Login />} />
+                  <Route path='/register' element={<Register />} />
+                  <Route path='/forgot-password' element={<ForgotPassword />} />
+                  <Route path='/mypage' element={isLogin ? <Mypage /> : <Login />} />
+                  <Route path="/user/edit" element={isLogin ? <UserEditPage /> : <Login />} />
+                  <Route path='/communityboard' element={<CommunityBoard />} />
+                  <Route path="/communitynew" element={<CommunityNew />} />
+                  <Route path="/edit/:id" element={<CommunityUpdate />} />
+                  <Route path="/post/:id" element={<CommunityDetail />} />
+                  <Route path="/resume" element={isLogin ? <ResumeManagement /> : <Login />} />
+                  <Route path="/customer-service" element={<CustomerService />} />
+                  <Route path='/quiz' element={<Quiz />} />
+                  <Route path='*' element={<Notfound />} />
+                </Routes>
 
-              <Footer />
+                <Footer />
 
-            </userContext.Provider>
-          </jobPostContext.Provider>
-        </loginContext.Provider>
-      </communityContext.Provider>
-
+              </userContext.Provider>
+            </jobPostContext.Provider>
+          </loginContext.Provider>
+        </communityContext.Provider>
+      </QuizProvider>
     </>
 
 

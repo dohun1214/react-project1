@@ -1,12 +1,15 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { userContext } from "../contexts"
+import usePageTitle from '../hooks/usePageTitle'
 
 const ForgotPassword = () => {
     const { users } = useContext(userContext)
     const [forgotEmail, setForgotEmail] = useState('')
     const [forgotId, setForgotId] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+
+    usePageTitle('비밀번호 찾기')
 
     const navi = useNavigate()
 

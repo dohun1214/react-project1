@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import usePageTitle from '../hooks/usePageTitle'
 
 function Main() {
+    usePageTitle("JOBBLE")
     const navi = useNavigate();
     return (
         <>
@@ -14,7 +16,7 @@ function Main() {
                             제주돌봄/5.18 오후 파트타임
                         </div>
                         <a
-                            href="/abti-test"
+                            href="/quiz"
                             className="bg-blue-100 p-6 rounded-2xl shadow col-span-2 flex items-center justify-between hover:bg-blue-200 transition cursor-pointer"
                         >
                             <div>

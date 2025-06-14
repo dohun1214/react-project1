@@ -2,8 +2,10 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Post } from '../../components';
 import { jobPostContext } from '../../contexts/';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const RecruitBoard = () => {
+  usePageTitle("채용정보 - JOBBLE")
   const { jobPosts } = useContext(jobPostContext);
 
   const [filters, setFilters] = useState({

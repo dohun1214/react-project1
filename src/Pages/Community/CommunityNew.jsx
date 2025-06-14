@@ -2,8 +2,11 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, EmotionSelector } from '../../components';
 import { communityContext } from '../../contexts';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const CommunityNew = () => {
+  usePageTitle("새 글 작성 - 커뮤니티");
+
   const { communityPostDispatch } = useContext(communityContext);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');

@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { jobPostContext } from '../../contexts/jobPostContext';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const timeOptions = ['오전', '오후', '풀타임', '협의 후 결정'];
 const daysOptions = ['평일', '주말', '야간', '주휴'];
@@ -28,7 +29,8 @@ const RecruitNew = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
   const navigate = useNavigate();
 
-  // 여기에 실제 카카오 API 키를 입력하세요
+  usePageTitle("채용공고 작성 - JOBBLE")
+
   const KAKAO_API_KEY = 'ba4865428f815d907f9818a916f716e9';
 
   // 카카오맵 스크립트 로드

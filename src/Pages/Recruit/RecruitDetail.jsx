@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, SalaryCalculatorModal, DeleteConfirmModal } from '../../components';
 import { jobPostContext, loginContext, userContext } from '../../contexts'
+import usePageTitle from '../../hooks/usePageTitle'
 
 const RecruitDetail = () => {
   const { id } = useParams();
@@ -15,7 +16,8 @@ const RecruitDetail = () => {
   const { userDispatch } = useContext(userContext);
   const { currentUser } = useContext(loginContext);
 
-  // 카카오 API 키 (실제 키로 교체하세요)
+  usePageTitle(`${post.title} `)
+
   const KAKAO_API_KEY = 'ba4865428f815d907f9818a916f716e9';
 
   const openModal = () => setIsModalOpen(true);
@@ -233,10 +235,10 @@ const RecruitDetail = () => {
                           onClick={toggleMap}
                           disabled={!mapLoaded}
                           className={`text-sm px-3 py-2 rounded-lg ${!mapLoaded
-                              ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
-                              : showMap
-                                ? 'bg-red-500 hover:bg-red-600 text-white'
-                                : 'bg-blue-500 hover:bg-blue-600 text-white'
+                            ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+                            : showMap
+                              ? 'bg-red-500 hover:bg-red-600 text-white'
+                              : 'bg-blue-500 hover:bg-blue-600 text-white'
                             }`}
                         >
                           {showMap ? '지도 닫기' : '지도 보기'}

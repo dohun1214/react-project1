@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../../components';
 import { jobPostContext } from '../../contexts/jobPostContext';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const timeOptions = ['오전', '오후', '풀타임', '협의 후 결정'];
 const daysOptions = ['평일', '주말', '야간', '주휴'];
@@ -16,6 +17,7 @@ const RecruitUpdate = () => {
   const [form, setForm] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  usePageTitle("채용공고 수정 - JOBBLE")  
 
   useEffect(() => {
     const post = jobPosts.find((p) => p.id === Number(id));

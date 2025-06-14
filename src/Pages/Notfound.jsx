@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
+import usePageTitle from '../hooks/usePageTitle'
 
 const Notfound = () => {
+  usePageTitle("페이지를 찾을 수 없습니다")
   const navigate = useNavigate();
 
   return (

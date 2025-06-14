@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import usePageTitle from '../hooks/usePageTitle'
 
 const CustomerService = () => {
+    usePageTitle("고객센터")
     const [activeTab, setActiveTab] = useState('faq');
     const [selectedCategory, setSelectedCategory] = useState('service');
     const [inquiryForm, setInquiryForm] = useState({

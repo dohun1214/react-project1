@@ -2,10 +2,12 @@ import { useContext, useState, useEffect } from "react";
 import { jobPostContext, loginContext, userContext } from "../contexts";
 import { Calendar, DateModal, Post } from "../components";
 import { Link } from "react-router-dom";
+import usePageTitle from '../hooks/usePageTitle'
 
 const EVENTS_STORAGE_KEY = "calendar_events";
 
 export default function Mypage() {
+    usePageTitle("마이페이지")
     const { currentUser } = useContext(loginContext);
     const { users } = useContext(userContext);
     const [currentDate, setCurrentDate] = useState(new Date());

@@ -1,8 +1,11 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userContext, loginContext } from '../contexts';
+import usePageTitle from '../hooks/usePageTitle';
+
 
 const UserEditPage = () => {
+    usePageTitle("회원 정보 수정")
     const { currentUser } = useContext(loginContext);
     const { users, userDispatch } = useContext(userContext);
     const currentUserObj = users?.find(user => user.id === currentUser);

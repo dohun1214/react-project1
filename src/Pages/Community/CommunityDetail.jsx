@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from '../../components';
 import { communityContext } from '../../contexts';
 import { emotionList } from '../../utils/emotionList';
 import { getEmotionImage } from '../../utils/getEmotionImage';
+import usePageTitle from '../../hooks/usePageTitle'
 
 const CommunityDetail = () => {
     const { id } = useParams();
@@ -12,6 +12,7 @@ const CommunityDetail = () => {
     const post = communityPosts.find((p) => p.id === Number(id));
     const [commentText, setCommentText] = useState('');
 
+    usePageTitle(post.title);
     useEffect(() => {
         if (post) {
             const updated = communityPosts.map((p) =>

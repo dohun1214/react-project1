@@ -2,8 +2,11 @@ import { useContext, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { userContext } from "../../contexts/userContext"
 import { loginContext } from '../../contexts/loginContext'
+import  usePageTitle  from '../../hooks/usePageTitle'
 
 const Login = () => {
+    usePageTitle("로그인")
+
     const { users } = useContext(userContext)
     const { isLogin, setIsLogin, setCurrentUser } = useContext(loginContext)
 

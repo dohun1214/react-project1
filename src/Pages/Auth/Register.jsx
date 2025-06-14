@@ -1,8 +1,11 @@
 import { useState, useContext } from "react"
 import { userContext } from "../../contexts/userContext";
 import { useNavigate } from "react-router-dom";
+import usePageTitle from '../../hooks/usePageTitle'
 
 function Register() {
+    usePageTitle("회원가입")
+
     const { users, userDispatch } = useContext(userContext)
     const navi = useNavigate()
 
