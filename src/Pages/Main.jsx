@@ -42,7 +42,7 @@ function Main() {
                                             </div>
                                             <h3 className="font-semibold text-slate-800 mb-1 line-clamp-2">{job.title}</h3>
                                             <p className="text-sm text-slate-600 mb-2">
-                                                시급 {job.pay}
+                                                시급 {parseInt(job.pay.replace(/[,원]/g, '')).toLocaleString()}원
                                             </p>
                                         </div>
                                         <div className="flex items-center text-xs text-green-600">
@@ -173,7 +173,7 @@ function Main() {
                                     <div className="space-y-1 text-sm text-slate-600">
                                         <div className="flex items-center gap-1">
                                             <span>💰</span>
-                                            <span className="font-semibold text-green-600">{job.pay}</span>
+                                            <span className="font-semibold text-green-600">{parseInt(job.pay.replace(/[,원]/g, '')).toLocaleString()}원</span>
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <span>📍</span>
