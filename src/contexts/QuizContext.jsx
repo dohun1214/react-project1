@@ -14,9 +14,7 @@ import r12 from '../assets/results/r12.png';
 import r13 from '../assets/results/r13.png';
 import r14 from '../assets/results/r14.png';
 import r15 from '../assets/results/r15.png';
-import r16 from '../assets/results/r15.png';
-
-
+import r16 from '../assets/results/r16.png'; 
 
 const QuizContext = createContext();
 export const useQuiz = () => useContext(QuizContext);
@@ -203,19 +201,18 @@ const typeData = {
     scores: { social: -1, logical: -1, creative: -1, detail: 1 },
   },
   slcd: {
-    title: '고요 속에서 창조적 흐름을 포착하는 예술가',
-    image: r16,
+    title: '자유로운 영혼의 유연한 실행가',
+    image: r16, 
     description: [
-      '조용한 상태에서 새로운 아이디어를 떠올려요.',
-      '직관적 영감을 즉시 작품처럼 표현해요.',
-      '계획보다는 순간의 감각을 믿어요.',
-      '세부보다는 전체 흐름을 중시해요.',
-      '내향적 열정으로 독창적 결과를 만들어내요.',
+      '조용한 환경에서 자유롭게 사고해요.',
+      '직관적인 판단으로 빠르게 행동해요.',
+      '틀에 얽매이지 않고 창의적으로 접근해요.',
+      '유연성을 발휘해 상황에 맞게 대응해요.',
+      '독립적이면서도 조화로운 협력자예요.',
     ],
-    scores: { social: -1, logical: -1, creative: 1, detail: -1 },
+    scores: { social: -1, logical: -1, creative: -1, detail: -1 }, 
   },
 };
-
 
 export function QuizProvider({ children }) {
   const questions = [
@@ -268,16 +265,20 @@ export function QuizProvider({ children }) {
       ]
     },
   ];
+
   const [currentIdx, setCurrentIdx] = useState(0);
   const [scores, setScores] = useState({ social: 0, logical: 0, creative: 0, detail: 0 });
+
   const answer = (value) => {
     const [dim, sign] = value.match(/^[a-z]+|[+-]$/g);
     setScores(prev => ({ ...prev, [dim]: prev[dim] + (sign === '+' ? 1 : -1) }));
     setCurrentIdx(i => i + 1);
   };
+
   const resultType = currentIdx >= questions.length
     ? Object.entries(scores).map(([dim, score]) => score >= 0 ? dim[0].toUpperCase() : dim[0].toLowerCase()).join('')
     : null;
+
   return (
     <QuizContext.Provider value={{ questions, currentIdx, answer, resultType, typeData }}>
       {children}
